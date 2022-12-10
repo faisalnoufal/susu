@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="susu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <script src="susu.js"></script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_DrhP9RXcGv3xvjNzlqeEx8AgbC04JCA&amp;callback=initMap&amp;libraries=&amp;v=weekly"
+    defer=""></script>
+</head>
+
+<body>
+  <!-- hero section starts -->
+  <div class="w-full text-gray-700 fixed z-10 polo">
+    <a href="#" class="flex flex-col items-center polo">
+      <img class="hidden md:block md:h-24 lg:h-28 logoimg" src="susu.png" alt="de-TravelCafe" />
+    </a>
+    <div x-data="{ open: false }"
+      class="flex flex-col max-w-screen-2xl px-4 mx-auto md:items-center md:justify-between lg:flex-row md:px-6 lg:px-8">
+      <div class="flex flex-row items-center justify-between p-2 md:p-3 md:hidden">
+        <a class="rounded-sm md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+          <svg fill="rgb(140, 56, 4)" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd" style="display: none"></path>
+          </svg>
+        </a>
+        <a href="/"
+          class="md:hidden text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-sm focus:outline-none focus:shadow-outline"><img
+            class="w-20 h-12 md:w-16 md:h-16 lg:h-20 lg:w-20" src="susu.png" alt="de-TravelCafe" /></a>
+      </div>
+
+      <nav :class="{'flex': open, 'hidden': !open}"
+        class="flex-col flex-grow py-1 md:flex md:justify-center md:flex-row hidden">
+        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
+          href="#about">About</a>
+
+        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
+          href="#destinations">Destinations</a>
+        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
+          href="#packages">Packages</a>
+
+        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
+          href="#services">Services</a>
+
+        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
+          href="#contact">Contact Us</a>
+      </nav>
+    </div>
+  </div>
+
+<!-- vido bg starts  -->
+
+  <section class="mx-auto w-full showcase">
+    <video src="deTravelcafe.mp4" muted="" loop="" autoplay="" class=""></video>
+    <div class="logo">
+      <img class="logoimg" src="susu.png" alt="de-TravelCafe" />
+    </div>
+  </section>
+
+  <!-- video bg ends -->
+
+  <div class="isolate bg-white">
+    <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+      <svg
+        class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+        viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3"
+          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+        <defs>
+          <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#9089FC"></stop>
+            <stop offset="1" stop-color="#FF80B5"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <main id="about">
+      <div class="relative px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl pt-20 sm:pt-48">
+          <div>
+            <div>
+              <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
+                deTravelCafé
+              </h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center pt-10">
+                Holiday... The word itself is rejuvenating!! Some days out of
+                daily chores!!! Oh, who can resist the temptation. But.. Time
+                is the constraint. Here, We deTravelCafé, offers a number of
+                day tours to refill you with energy and thrill. We know each
+                of you have different choices. That's why we prefer customized
+                day tours. Hill stations, river cruising, beaches, jungle,
+                monuments, forts, museums, malls, shopping streets...
+                everything is there. Choice is yours. Our experts will design
+                it for you. Come, try a getaway from the maddening routines...
+                We are aware of your precious time. That's why we crafted
+                bunch of day tours for you.
+              </p>
+            </div>
+            <div
+              class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+              <svg
+                class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+                viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)" fill-opacity=".3"
+                  d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
+                <defs>
+                  <linearGradient id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc" x1="1155.49" x2="-78.208" y1=".177"
+                    y2="474.645" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#9089FC"></stop>
+                    <stop offset="1" stop-color="#FF80B5"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- destinations start -->
+  <section id="destinations" class="">
+    <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
+      Destinations
+    </h1>
+    <div class="bg-white pt-10">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="sm:text-center">
+          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Kerala
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            A land mystical to its nature, a deep sense of contentment speakers
+            further taking us to deeper depths of inner peace!
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            God's own country kept a lot of surprises in her chest. Each
+            district beckons you with its genuinity and variety.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Temples, beaches, streets, museums, palaces, remains of royal
+            decades.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Trivandrum, Kollam trails, Cochin trips-Anglo Indian settlements,
+            fishermen villages, synagogue, backwaters, city tours, shopping,
+            Waterfalls (Athirappilli and Vazhachal), Pathanamthitta (Gavi and
+            the like)
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Kumarakom, Munnar, Thekkadi trips
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Trissur: Famous temples, Peechi...
+          </p>
+
+        </div>
+        <div class="sm:text-center">
+          <p class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Karnataka
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Vibrant worlds seamlessly meld into one another, a blend of heart stopping beauties carrying a way the
+            legacy of art and culture, Karnataka as a heritage.
+          </p>
+
+        </div>
+        <div class="sm:text-center">
+          <p class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Tamil Nadu
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Cultural and traditional divinity of flawless hill station and long sunny beaches? you choose!!!
+            The land cherishes both. </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- desinations ends  -->
+
+
+
+  <!-- packages starts -->
+
+  <section id="packages">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
+      Kerala Day Tour Packages
+    </h1>
+    <div class="bg-white pt-10">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="sm:text-center">
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Listen to the symphony of nature, God's own country.
+            Our schedule ensures that our guests fully enjoys their experience of their visit and we believe each
+            journey should have memorable moments to be cherished.
+          </p>
+
+          <div class="bg-lime-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Colonial Cochin
+            </p>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+              Cochin, more popular as the "Queen of the Arabian Sea", a cluster of islands on the vast expanses of the
+              Vembanad Lake. The package comprises of a complete sightseeing of Fort Kochi and Mattancheri. The trip
+              starts into the pitches of Cochin at 9:30 am within any convenient location in the city as preferred.
+              Covering all the major attraction of city like Bolgatty Palace, Dutch Palace, Jews street, Jewish
+              Synagogue
+              etc.
+
+              By evening 5:30 pm the excitements are regarded to end, we are upon to drop you back safely at 7:00 pm.
+            </p>
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+              <div
+                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-70 border border-gray-200">
+                <div class="max-w-md mx-auto">
+                  <div>
+                  </div>
+                  <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                      <ul class="list-disc space-y-2">
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Morning 09:00 am Arrival
+                          </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Accompanied by our cab driver
+                          </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">3hrs at Fort Kochi</p>
+                        </li>
+                      </ul>
+                      <li class="flex items-start">
+                        <span class="h-6 flex items-center sm:h-7">
+                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                        <p class="ml-2">2hrs at Mattancheri</p>
+                      </li>
+
+                      <li class="flex items-start">
+                        <span class="h-6 flex items-center sm:h-7">
+                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                        <p class="ml-2">Departure at 07:00 pm</p>
+                      </li>
+
+                      <li class="flex items-start">
+                        <span class="h-6 flex items-center sm:h-7">
+                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                        <p class="ml-2">Breakfast and Lunch</p>
+                      </li>
+
+                    </div>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Floating Allepey
+            </p>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+              Explore the scenic backwaters of kuttanad with a cruise ride in houseboat. Wake up to the delightful sight
+              of ducks swimming past your rooms and explore the rustic life that drifts by.
+
+              The trip starts by a pickup time of 09:45 am from Cochin into teh extents of Alleppey, from where you will
+              board your Houseboats for a cruise ride. The cruise will return by 5pm in the evening and we are off to
+              drop you back safely at Cochin around 08:00 pm
+            </p>
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+              <div
+                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200">
+                <div class="max-w-md mx-auto">
+                  <div>
+                  </div>
+                  <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                      <ul class="list-disc space-y-2">
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Breakfast and Lunch
+                          </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Departure from Cochin at 9:45am
+                          </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">Alleppey Cruise starts at 12 Noon</p>
+                        </li>
+                      </ul>
+                      <li class="flex items-start">
+                        <span class="h-6 flex items-center sm:h-7">
+                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                        <p class="ml-2">Arrival back at Cochin at 08:00 pm</p>
+                      </li>
+
+                    </div>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-rose-200 py-6 flex flex-col justify-center sm:py-12 mb-10">
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Boundless Munnar
+            </p>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+              The capital city of Kerala, residing on the coasts of Arabian sea would b a tremendous experience to
+              witness, a land famous for it's cultural and religious backgrounds welcomes.
+
+              The package comprises of a complete sightseeing of lighthouse beach Kovalam, sri Padmanabhaswamy temple,
+              Napier Museum with a morning pick up time of 09:30am and a drop at 05:30 pm.
+
+
+            </p>
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+              <div
+                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200">
+                <div class="max-w-md mx-auto">
+                  <div>
+                  </div>
+                  <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                      <ul class="list-disc space-y-2">
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Pickup at morning 09:30 am, departure for sightseeing
+                          </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Accompanied by our cab driver </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">Arrval back at ciy by 05:30 pm
+                          </p>
+                        </li>
+                      </ul>
+                      <li class="flex items-start">
+                        <span class="h-6 flex items-center sm:h-7">
+                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                        <p class="ml-2">Breakfast and lunch
+                        </p>
+                      </li>
+
+                    </div>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Enshrined Trivandrum
+            </p>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+              Munnar, distinctively known as "Three rivers" is a fabulous blend of nature and we pioneer those beauties
+              with you.
+
+              The trip starts into the extents of Munnar from Cochin at 05:30am, and covering all those splendid
+              attractions like Anamudi peak, tea plantation in Munnar, Pothenmedu, Mattupetty Dam, Devikulam etc. By
+              evening 06:30PM the excitements are off to the end and we are upon to drop you back at Cochin at 09:30pm.
+
+
+            </p>
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+              <div
+                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200">
+                <div class="max-w-md mx-auto">
+                  <div>
+                  </div>
+                  <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                      <ul class="list-disc space-y-2">
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Departure to Munnar from Cochin at 05:30 am
+                          </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">
+                            Accompanied by our cab driver </p>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="h-6 flex items-center sm:h-7">
+                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                          <p class="ml-2">Breakfast and Lunch
+                          </p>
+                        </li>
+                      </ul>
+                      <li class="flex items-start">
+                        <span class="h-6 flex items-center sm:h-7">
+                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                        <p class="ml-2">Arrival at cochin at 09:30 pm</p>
+                      </li>
+
+                    </div>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+  </section>
+
+  <!-- packages ends -->
+
+  <!-- our services starts -->
+
+  <section id="services" class="">
+    <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
+      Services
+    </h1>
+    <div class="bg-white pt-10">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="sm:text-center">
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            We exhibit a versatile way of coping up according to your wishes, satisfying and we rejoice your smile as
+            the greatest reward. Packages and services
+          </p>
+          <div class="container mx-auto w-full">
+            <div class="w-full flex flex-wrap content-center justify-around mx-auto px-2 py-12 md:px-6">
+
+              <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
+                    style="background-image: url(https://images.pexels.com/photos/962464/pexels-photo-962464.jpeg?auto=compress&cs=tinysrgb&w=1600)">
+                  </div>
+                  <div
+                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-purple-50 hover:bg-purple-500 hover:text-white">
+                    <div class="header-content inline-flex">
+                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
+                        <div class="h-2 w-2 rounded-full m-1 bg-purple-500 "></div>
+                      </div>
+                      <div class="category-title font-medium"> Houseboat Cruise </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
+                    style="background-image: url(https://images.pexels.com/photos/248547/pexels-photo-248547.jpeg?auto=compress&cs=tinysrgb&w=1600)">
+                  </div>
+                  <div
+                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-pink-50 hover:bg-pink-500 hover:text-white">
+
+                    <div class="header-content inline-flex ">
+                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-pink-100">
+                        <div class="h-2 w-2 rounded-full m-1 bg-pink-500 "></div>
+                      </div>
+                      <div class="category-title font-medium"> Weekend & Adventure Tour packages</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
+                    style="background-image: url(https://images.pexels.com/photos/3769138/pexels-photo-3769138.jpeg?auto=compress&cs=tinysrgb&w=1600)">
+                  </div>
+
+                  <div
+                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
+
+                    <div class="header-content inline-flex ">
+                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
+                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
+                      </div>
+                      <div class="category-title font-medium"> Customised packages</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
+                    style="background-image: url(https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1600)">
+                  </div>
+
+                  <div
+                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
+
+                    <div class="header-content inline-flex ">
+                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
+                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
+                      </div>
+                      <div class="category-title font-medium"> Car rentals</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
+                    style="background-image: url(https://images.pexels.com/photos/2272940/pexels-photo-2272940.jpeg?auto=compress&cs=tinysrgb&w=1600)">
+                  </div>
+
+                  <div
+                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
+
+                    <div class="header-content inline-flex ">
+                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
+                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
+                      </div>
+                      <div class="category-title font-medium"> Sightseeing</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+  </section>
+
+
+  <!-- our services ends  -->
+
+  <!-- contact us starts  -->
+
+  <section id="contact" class="mx-auto">
+
+    <h1 class="mx-auto text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
+      Contact Us
+    </h1>
+    <div class="bg-white pt-10 mx-auto">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="sm:text-center">
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+
+          </p>
+          <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_DrhP9RXcGv3xvjNzlqeEx8AgbC04JCA&amp;callback=initMap&amp;libraries=&amp;v=weekly"
+            defer=""></script>
+
+        </div>
+      </div>
+      <!-- <div id="map"></div> -->
+
+  <script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+  <script>
+    var wa_btnSetting = { "btnColor": "#16BE45", "ctaText": "WhatsApp Us", "cornerRadius": 40, "marginBottom": 20, "marginLeft": 20, "marginRight": 20, "btnPosition": "right", "whatsAppNumber": "919061140555", "welcomeMessage": "", "zIndex": 999999, "btnColorScheme": "light" };
+    var wa_widgetSetting = { "title": "deTravelCafé", "subTitle": "Your Travel Partner", "headerBackgroundColor": "#43613d", "headerColorScheme": "light", "greetingText": "Hi there! \nHow can I help you?", "ctaText": "Start Chat", "btnColor": "#04d72e", "cornerRadius": 40, "welcomeMessage": "Hello", "btnColorScheme": "light", "brandImage": "https://detravelcafe.in/assets/images/site-logo.jpg", "darkHeaderColorScheme": { "title": "#333333", "subTitle": "#4F4F4F" } };
+    window.onload = () => {
+      _waEmbed(wa_btnSetting, wa_widgetSetting);
+    };
+  </script>
+
+  </section>
+
+  <!-- contact us ends  -->
+
+
+
+
+  <!-- whatsapp ends  -->
+
+  <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Metro Station, VIII/1544, 3rd Floor, Royal Plaza Bridge Road, Near Aluva, Kochi, Kerala 683101&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://mcpedls.com/">minecraft download</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
+
+
+  <!-- footer starts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <footer class="relative bg-lime-500 pt-8 pb-6 text-amber-900">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap text-left lg:text-left">
+        <div class="w-full lg:w-6/12 px-4">
+          <h4 class="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
+          <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+            Find us on any of these platforms, we respond 1-2 business days.
+          </h5>
+          <div class="mt-6 lg:mb-0 mb-6">
+            <!-- <button
+                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button">
+                <i class="fab fa-twitter"></i></button> -->
+            <button
+              class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+              type="button">
+              <i class="fab fa-facebook-square"></i></button>
+            <!-- <button
+                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button">
+                <i class="fab fa-dribbble"></i></button> -->
+            <!-- <button
+                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button">
+                <i class="fab fa-github"></i>
+              </button> -->
+          </div>
+        </div>
+        <div class="w-full lg:w-6/12 px-4">
+          <div class="flex flex-wrap items-top mb-6">
+            <div class="w-full lg:w-4/12 px-4 ml-auto">
+              <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="#about">About Us</a>
+                </li>
+                <li>
+                  <!-- <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com?ref=njs-profile">Blog</a> -->
+                </li>
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="#destinations">Destinations</a>
+                </li>
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="#packages">Packages</a>
+                </li>
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="#services">Services</a>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full lg:w-4/12 px-4">
+              <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">MIT
+                    License</a>
+                </li>
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp; Conditions</a>
+                </li>
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
+                </li>
+                <li>
+                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                    href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-6 border-amber-900">
+      <div class="flex flex-wrap items-center md:justify-between justify-center">
+        <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+          <div class="text-sm text-amber-900 font-semibold py-1">
+            Copyright © <span id="">2017-
+              <script>document.write(new Date().getFullYear())</script>
+            </span><a href="deTravelcafe.com" class="text-blueGray-500 hover:text-gray-800" target="_blank">
+              de-TravelCafé
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+</body>
+
+</html>
