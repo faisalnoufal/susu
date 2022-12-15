@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /Global.asax
+Disallow:/downloads/
 Disallow: /images/
 Disallow: /includes/
 Disallow: /lib/
@@ -17,11 +17,7 @@ Disallow: /2/
 Disallow: /ucf/
 Disallow: /old/
 Disallow: /mobile/old/
-Disallow: /privacy.aspx
-Disallow: /thumb.aspx
-Disallow: /requestreview
-Disallow: */thankureview.aspx
-Disallow: */unhappyreview.aspx
+Disallow: /requestreview/
 
 User-agent: Googlebot
 Allow: /
