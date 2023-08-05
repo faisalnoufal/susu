@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,20 +28,21 @@
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> deTravelCafé </title>
-
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-T2DCHN4');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-T2DCHN4');</script>
   <!-- End Google Tag Manager -->
 </head>
-
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2DCHN4"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2DCHN4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- hero section starts -->
   <div class="w-full text-gray-700 fixed z-10 polo">
@@ -66,37 +66,29 @@
           class="md:hidden text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-sm focus:outline-none focus:shadow-outline"><img
             class="w-20 h-12 md:w-16 md:h-16 lg:h-20 lg:w-20" src="susu.png" alt="de-TravelCafe" /></a>
       </div>
-
       <nav :class="{'flex': open, 'hidden': !open}"
         class="flex-col flex-grow py-1 md:flex md:justify-center md:flex-row hidden">
         <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
           href="#about">About</a>
-
         <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
           href="#destinations">Destinations</a>
         <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
           href="#packages">Packages</a>
-
         <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
           href="#services">Services</a>
-
         <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
           href="#contact">Contact Us</a>
       </nav>
     </div>
   </div>
-
   <!-- vido bg starts  -->
-
   <section class="mx-auto w-full showcase">
     <video src="deTravelcafe.mp4" muted="" loop="" autoplay="" class=""></video>
     <div class="logo">
       <img class="logoimg" src="susu.png" alt="de-TravelCafe" />
     </div>
   </section>
-
   <!-- video bg ends -->
-
   <div class="isolate bg-white">
     <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
       <svg
@@ -113,7 +105,6 @@
         </defs>
       </svg>
     </div>
-
     <main id="about">
       <div class="relative px-6 lg:px-8">
         <div class="mx-auto max-w-3xl pt-20 sm:pt-48">
@@ -157,7 +148,6 @@
       </div>
     </main>
   </div>
-
   <!-- destinations start -->
   <section id="destinations" class="">
     <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
@@ -166,7 +156,7 @@
     <div class="bg-white pt-10">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="sm:text-center">
-          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p class="mt-2 text-3xl font-bold tracking-tight text-green-600 sm:text-4xl">
             Kerala
           </p>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
@@ -193,39 +183,697 @@
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
             Trissur: Famous temples, Peechi...
           </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Munnar </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Munnar is a town and hill station located in the Western Ghats mountain range in the Indian state of Kerala.
+            It is a popular tourist destination known for its scenic beauty, tea plantations, and pleasant weather.
+            Munnar is situated at an elevation of around 1,600 meters above sea level and is surrounded by rolling
+            hills, lush forests, and valleys.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Munnar is famous for its tea plantations, which cover large areas of the region and produce some of the
+            finest tea in the world. The town is also home to several wildlife sanctuaries, including the Eravikulam
+            National Park, which is home to the endangered Nilgiri Tahr.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Tourists can enjoy a range of outdoor activities in Munnar, including trekking, camping, wildlife safaris,
+            and boating. The town is also a popular destination for honeymooners, as it offers a romantic and peaceful
+            atmosphere.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Some of the popular tourist attractions in Munnar include the Tea Museum, Mattupetty Dam, Kundala Lake, Top
+            Station, and the Echo Point. The town is well-connected by road, and the nearest airport is Cochin
+            International Airport, which is around 110 kilometers away.
+          </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Fort Kochi </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Fort Kochi is a historical and picturesque neighborhood located in the city of Kochi in the Indian state of
+            Kerala. It is known for its colonial architecture, Chinese fishing nets, and beautiful beaches. The area has
+            a rich history and was a hub of trade and commerce for centuries.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            One of the major attractions in Fort Kochi is the Chinese fishing nets. These unique fishing nets are a
+            common sight in Kochi and are believed to have been introduced by Chinese traders who visited the region.
+            Visitors can watch the fishermen in action and even try their hand at fishing.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Fort Kochi is also known for its colonial architecture, which is a reflection of the city's rich history.
+            The area has several well-preserved buildings that date back to the Portuguese, Dutch, and British colonial
+            eras. The St. Francis Church, which is the oldest European church in India, is a popular tourist attraction
+            in Fort Kochi. The Dutch Palace, also known as the Mattancherry Palace, is another popular attraction that
+            features beautiful murals and artifacts.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Fort Kochi is also known for its vibrant art and culture scene. The area has several art galleries,
+            performance spaces, and cultural centers that promote traditional and contemporary art forms. Visitors can
+            enjoy classical music concerts, dance performances, and art exhibitions throughout the year.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The area is well-connected by road and is approximately 45 km from the nearest airport in Kochi. The nearest
+            railway station is the Ernakulam Junction, which is about 13 km from Fort Kochi.
+          </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Athirappilly Waterfalls
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Athirappilly Waterfalls, also known as Athirappilly Falls, is a popular tourist attraction located in the
+            Thrissur district of Kerala, India. It is one of the largest waterfalls in Kerala and is situated on the
+            Chalakudy River, which originates in the Western Ghats. The waterfall drops from a height of approximately
+            80 feet (24 meters) and spans across a wide area. The surroundings of Athirappilly Waterfalls are lush green
+            with dense forests and rocky terrain. The waterfall cascades down a series of rocky steps, creating a
+            stunning visual spectacle.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The area around Athirappilly Waterfalls is rich in biodiversity. It is part of the Sholayar forest ranges
+            and is home to a variety of flora and fauna, including rare species of plants and animals. Located just a
+            few kilometers downstream from Athirappilly, Vazhachal Waterfalls is another beautiful waterfall that is
+            often visited by tourists. It offers a different perspective and experience compared to Athirappilly.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The waterfall is easily accessible by road, and there are viewpoints and pathways for visitors to enjoy the
+            panoramic views. There are also facilities like parking, restrooms, and food stalls available for tourists.
+            It is important to note that due to the natural surroundings and terrain, visitors are advised to follow
+            safety guidelines and be cautious while exploring the area. The best time to visit Athirappilly Waterfalls
+            is during the monsoon season (June to September) when the waterfall is at its full splendor.
+          </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Nelliyampathy </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Nelliyampathy is a hill station located in the Palakkad district of the Indian state of Kerala. It is
+            situated in the Western Ghats and is known for its scenic beauty and pleasant weather.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Some of the popular tourist attractions in Nelliyampathy include:
+          </p>
+          <div class="relative py-2 sm:max-w-xl sm:mx-auto">
+            <div class="max-w-md mx-auto">
+              <div>
+              </div>
+              <div class="divide-y divide-gray-200">
+                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                  <ul class="list-disc space-y-2">
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Nelliyampathy Hills: These hills are a popular trekking destination and offer stunning views of
+                        the surrounding landscape.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Seetharkundu Viewpoint: This is a popular viewpoint that offers panoramic views of the valley
+                        and the surrounding hills.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Pothundy Dam: This is a popular picnic spot and offers opportunities for boating and fishing.
+                      </p>
+                    </li>
+                  </ul>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Palagapandi Estate: This is a tea estate located in the hills and offers a scenic and peaceful
+                      setting.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Kesavanpara: This is a waterfall located in the hills and is a popular spot for trekking and
+                      camping.
+                    </p>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Nelliyampathy is also known for its rich biodiversity, with several species of flora and fauna found in the
+            region. The region is home to several wildlife sanctuaries such as the Parambikulam Wildlife Sanctuary and
+            the Silent Valley National Park.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The local cuisine of Nelliyampathy is also quite popular, with dishes such as puttu, appam, and dosa being
+            some of the favorites. Overall, Nelliyampathy is a great destination for nature lovers, adventure
+            enthusiasts, and those looking for a peaceful getaway.
+          </p>
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Parambikulam Wildlife Sanctuary</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Parambikulam Wildlife Sanctuary is a protected area located in the Palakkad district of the Indian state of
+            Kerala. It is a part of the Western Ghats, which is a UNESCO World Heritage Site, and is known for its rich
+            biodiversity.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Some of the popular tourist attractions in Parambikulam Wildlife Sanctuary include:
+          </p>
+          <div class="relative py-2 sm:max-w-xl sm:mx-auto">
+            <div class="max-w-md mx-auto">
+              <div>
+              </div>
+              <div class="divide-y divide-gray-200">
+                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                  <ul class="list-disc space-y-2">
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Wildlife Safari: This is one of the main attractions of the sanctuary, where visitors can go on
+                        a safari and spot several species of wildlife such as tigers, elephants, leopards, and deer.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Trekking: The sanctuary offers several trekking trails that lead to stunning viewpoints and
+                        waterfalls.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Boating: Visitors can also go on a boat ride on the Parambikulam Reservoir and enjoy the scenic
+                        beauty of the surrounding hills and forests.
+                      </p>
+                    </li>
+                  </ul>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Thunakadavu Dam: This is a popular picnic spot and offers stunning views of the reservoir and the
+                      surrounding hills.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Karianshola: This is a viewpoint located in the sanctuary and offers panoramic views of the valley
+                      and the surrounding hills.
+                    </p>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The sanctuary is home to several species of flora and fauna, including several endangered and endemic
+            species. The sanctuary is also known for its rich birdlife, with over 300 species of birds found in the
+            region.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Overall, Parambikulam Wildlife Sanctuary is a great destination for nature lovers, wildlife enthusiasts, and
+            those looking for a peaceful getaway amidst the scenic beauty of the Western Ghats.
+          </p>
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Silent Valley National Park</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Silent Valley National Park is a protected area located in the Palakkad district of the Indian state of
+            Kerala. It is a part of the Western Ghats, which is a UNESCO World Heritage Site, and is known for its rich
+            biodiversity and untouched wilderness. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Some of the popular tourist attractions in Silent Valley National Park include:
+          </p>
+          <div class="relative py-2 sm:max-w-xl sm:mx-auto">
+            <div class="max-w-md mx-auto">
+              <div>
+              </div>
+              <div class="divide-y divide-gray-200">
+                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                  <ul class="list-disc space-y-2">
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Trekking: The park offers several trekking trails that lead to stunning viewpoints and
+                        waterfalls. The Sairandhri Trek is one of the most popular trails in the park.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Wildlife Safari: Visitors can go on a safari and spot several species of wildlife such as
+                        tigers, elephants, leopards, and deer. </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Kuntipuzha River: This river runs through the park and offers opportunities for river rafting
+                        and fishing. </p>
+                    </li>
+                  </ul>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Poochira: This is a waterfall located in the park and is a popular spot for picnics and
+                      photography. </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Interpretation Centre: The park has an interpretation centre that provides information on the
+                      flora and fauna found in the region. </p>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The park is home to several species of flora and fauna, including several endangered and endemic species.
+            The park is also known for its rich birdlife, with over 200 species of birds found in the region. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Overall, Silent Valley National Park is a great destination for nature lovers, wildlife enthusiasts, and
+            those looking for a peaceful getaway amidst the untouched wilderness of the Western Ghats. However, it is
+            important to note that the park has certain restrictions in place to protect its fragile ecosystem, and
+            visitors are required to follow the rules and regulations of the park. </p>
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Alleppey</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Alleppey, also known as Alappuzha, is a city located in the Indian state of Kerala. It is known for its
+            serene backwaters, beaches, and houseboat cruises. Alleppey is often called the "Venice of the East" due to
+            its network of canals and lagoons. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The backwaters of Alleppey are one of the major tourist attractions in the region, and visitors can enjoy a
+            relaxing boat ride while taking in the beautiful scenery. Houseboat cruises are a popular way to explore the
+            backwaters, and many tourists opt to spend a night or two on a houseboat. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Alleppey is also known for its beautiful beaches, including the Alappuzha Beach and the Marari Beach.
+            Visitors can enjoy water sports, sunbathing, and swimming at these beaches. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Other popular tourist attractions in Alleppey include the Kumarakom Bird Sanctuary, the Pathiramanal Island,
+            the Arthunkal Church, and the St. Andrew's Basilica. The city is well-connected by road, rail, and
+            waterways, and the nearest airport is Cochin International Airport, which is approximately 75 km away. </p>
+
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Thekkady</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Thekkady is a popular tourist destination in the Indian state of Kerala, known for its beautiful scenic
+            beauty, wildlife, and spices. It is located in the Idukki district and is part of the Periyar National Park,
+            which is one of the most famous wildlife reserves in India. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Periyar National Park is known for its rich biodiversity, including tigers, elephants, wild boars, sambar
+            deer, barking deer, langurs, and a variety of bird species. The park is also home to the Periyar Lake, which
+            is a popular spot for boating and wildlife watching. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Thekkady is known for its spice plantations and visitors can enjoy a tour of the plantations to learn about
+            the various spices grown in the region, including cardamom, pepper, cinnamon, and cloves. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Other popular tourist attractions in Thekkady include the Periyar Tiger Trail, Elephant Junction, and the
+            Mangala Devi Temple. The town is well-connected by road and is approximately 140 km from the nearest airport
+            in Madurai. The nearest major railway station is in Kottayam, which is approximately 114 km from Thekkady.
+          </p>
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Wagamon
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Wagamon, also spelled Vagamon, is a hill station located in the southern Indian state of Kerala. It is
+            situated in the Western Ghats and is known for its beautiful green landscapes, rolling hills, and pleasant
+            weather. The town is a popular tourist destination, and visitors come here to escape the heat of the plains
+            and to enjoy the serene beauty of the hills.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Wagamon is surrounded by tea plantations, and visitors can enjoy a refreshing cup of tea while enjoying the
+            beautiful scenery. The town is also known for its adventure activities, including paragliding, trekking, and
+            rock climbing. Visitors can take a ride on the cable car to get a bird's eye view of the lush green hills.
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Other popular tourist attractions in Wagamon include the Wagamon Pine Forest, the Kurisumala Ashram, and the
+            Vagamon Orchidarium and Floriculture Project. The town is also known for its religious significance, and the
+            famous Murugan Temple is located here. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Wagamon is well-connected by road and is approximately 65 km from the nearest airport in Kochi. The nearest
+            railway station is in Kottayam, which is about 64 km from Wagamon.
+          </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800"> Kovalam
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Kovalam is a popular beach town located in the southern Indian state of Kerala. It is situated along the
+            Malabar Coast and is known for its beautiful beaches, palm-lined shores, and picturesque sunsets. Kovalam is
+            a popular destination for tourists and is visited by travelers from all over the world. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Kovalam has three beautiful beaches, namely Lighthouse Beach, Hawa Beach, and Samudra Beach. Lighthouse
+            Beach is the most popular among them and is known for its beautiful lighthouse and the stunning views it
+            offers. Hawa Beach is known for its scenic beauty, while Samudra Beach is relatively quieter and is perfect
+            for those seeking solitude. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Apart from the beaches, Kovalam also offers a range of water sports activities such as surfing, parasailing,
+            and motorboat rides. The town is also known for its Ayurvedic treatments and visitors can indulge in
+            rejuvenating Ayurvedic massages and therapies. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Other popular tourist attractions in Kovalam include the Vellayani Lake, the Kovalam Art Gallery, and the
+            Halcyon Castle. Kovalam is well-connected by road and is approximately 16 km from the nearest airport in
+            Thiruvananthapuram. The nearest major railway station is also located in Thiruvananthapuram, which is about
+            13 km from Kovalam. </p>
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800"> Poovar
+          </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Poovar Island is a small fishing village and island located in the southern Indian state of Kerala. It is
+            situated at the southernmost tip of the state and is known for its natural beauty, beaches, and backwaters.
+            Poovar is a relatively lesser-known destination in Kerala, making it an ideal spot for those seeking
+            solitude and tranquility. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The island is surrounded by backwaters, which are a major attraction for visitors. The backwaters of Poovar
+            are serene and peaceful, and visitors can take a boat ride to explore the area. The island also has a
+            beautiful beach, the Poovar Beach, which is known for its golden sands and clear blue waters. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Another major attraction on Poovar Island is the estuary where the river, lake, and sea meet. Visitors can
+            enjoy a unique experience of being in a boat, where they can witness the convergence of different water
+            bodies. The island is also home to several small temples, including the ancient Thirparappu Bhagavathy
+            Temple. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Poovar Island is well-connected by road and is approximately 30 km from the nearest airport in
+            Thiruvananthapuram. The nearest railway station is also located in Thiruvananthapuram, which is about 27 km
+            from the island. </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Kanyakumari</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Kanyakumari, also known as Cape Comorin, is a coastal town located in the southernmost part of India, in the
+            state of Tamil Nadu. It is a popular tourist destination due to its beautiful beaches, temples, and
+            historical landmarks. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Some of the popular tourist attractions in Kanyakumari include: </p>
+          <div class="relative py-2 sm:max-w-xl sm:mx-auto">
+            <div class="max-w-md mx-auto">
+              <div>
+              </div>
+              <div class="divide-y divide-gray-200">
+                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                  <ul class="list-disc space-y-2">
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Kanyakumari Beach: This is a popular beach that offers stunning views of the sunrise and sunset
+                        over the ocean.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Vivekananda Rock Memorial: This is a memorial dedicated to Swami Vivekananda, a famous Indian
+                        philosopher and spiritual leader. It is located on a small island off the coast of Kanyakumari
+                        and can be reached by ferry. </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Thiruvalluvar Statue: This is a 133-foot tall statue of the famous Tamil poet and philosopher,
+                        Thiruvalluvar. It is located on a small island off the coast of Kanyakumari and can be reached
+                        by ferry. </p>
+                    </li>
+                  </ul>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Padmanabhapuram Palace: This is a 16th-century palace located in the nearby town of
+                      Padmanabhapuram. It is known for its beautiful architecture and is a popular tourist attraction.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Suchindram Temple: This is a famous Hindu temple located in the nearby town of Suchindram. It is
+                      known for its unique architecture and is a popular pilgrimage site. </p>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Kanyakumari is also known for its local cuisine, which includes seafood and South Indian dishes such as
+            dosa, idli, and sambar. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Overall, Kanyakumari is a great destination for beach lovers, history buffs, and those interested in
+            spirituality and culture. The town offers a unique mix of natural beauty and historical landmarks, making it
+            a popular tourist destination in Southern India.</p>
+
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Wayanad</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Wayanad is a district in the north-eastern part of the Indian state of Kerala. It is located in the Western
+            Ghats, a mountain range that runs parallel to the western coast of India. The district is known for its
+            scenic beauty, wildlife, and rich cultural heritage. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Some of the popular tourist attractions in Wayanad include: </p>
+          <div class="relative py-2 sm:max-w-xl sm:mx-auto">
+            <div class="max-w-md mx-auto">
+              <div>
+              </div>
+              <div class="divide-y divide-gray-200">
+                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                  <ul class="list-disc space-y-2">
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Edakkal Caves: These are ancient caves with petroglyphs that date back to the Neolithic era.
+                      </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Banasura Sagar Dam: This is the largest earthen dam in India and offers stunning views of the
+                        surrounding mountains. </p>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="h-6 flex items-center sm:h-7">
+                        <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <p class="ml-2">
+                        Chembra Peak: This is the highest peak in Wayanad and offers a challenging trek for adventure
+                        enthusiasts. </p>
+                    </li>
+                  </ul>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Pookode Lake: This is a freshwater lake surrounded by lush green forests and is a popular spot for
+                      boating and picnics.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="h-6 flex items-center sm:h-7">
+                      <svg class="flex-shrink-0 h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </span>
+                    <p class="ml-2">
+                      Thirunelli Temple: This ancient temple is located in a serene valley surrounded by hills and is
+                      dedicated to Lord Vishnu. </p>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Wayanad is also home to several wildlife sanctuaries such as the Wayanad Wildlife Sanctuary and the
+            Tholpetty Wildlife Sanctuary. The district is known for its rich flora and fauna, including elephants,
+            tigers, leopards, and several species of birds. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The local cuisine of Wayanad is also quite popular, with dishes such as appam, puttu, and dosa being some of
+            the favorites. Overall, Wayanad is a great destination for nature lovers, history enthusiasts, and those
+            looking for a peaceful getaway.</p>
+
+          <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
+            Calicut</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Calicut, also known as Kozhikode, is a city located in the Indian state of Kerala. It is situated on the
+            Malabar Coast and is known for its historical significance, beautiful beaches, and natural beauty. Calicut
+            was an important center of trade and commerce in ancient times and played a significant role in the spice
+            trade. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            One of the most popular tourist attractions in Calicut is the Kozhikode Beach, which is a serene and
+            beautiful beach that offers stunning views of the Arabian Sea. Visitors can enjoy water sports, sunbathing,
+            and swimming at the beach. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Calicut is also home to several historical monuments, including the Mananchira Square, which was the palace
+            tank of the Zamorin of Calicut. The Beypore Port is another popular tourist destination, and visitors can
+            witness the traditional ship-building process here. The Tali Temple and the Thikkoti Light House are also
+            popular attractions in the city. </p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            The city is also known for its unique cuisine, which includes a variety of seafood dishes and traditional
+            Kerala cuisine. The Kozhikode biryani is a popular dish that is loved by locals and visitors alike.</p>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Calicut is well-connected by road, rail, and air. The nearest airport is the Calicut International Airport,
+            which is located approximately 28 km from the city center. The city is also well-connected by rail, and the
+            Calicut Railway Station is a major railway station in the region.</p>
 
         </div>
         <div class="sm:text-center">
-          <p class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p class="mt-4 text-3xl font-bold tracking-tight text-blue-900 sm:text-4xl">
             Karnataka
           </p>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
             Vibrant worlds seamlessly meld into one another, a blend of heart stopping beauties carrying a way the
             legacy of art and culture, Karnataka as a heritage.
           </p>
-
         </div>
         <div class="sm:text-center">
-          <p class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p class="mt-4 text-3xl font-bold tracking-tight text-yellow-900 sm:text-4xl">
             Tamil Nadu
           </p>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
             Cultural and traditional divinity of flawless hill station and long sunny beaches? you choose!!!
             The land cherishes both. </p>
-
         </div>
       </div>
     </div>
   </section>
-  <!-- desinations ends  -->
-
-
-
-  <!-- packages starts -->
-
   <section id="packages">
     <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
-      Kerala Day Tour Packages
+      <span class="text-lime-600"> Kerala </span> Day Tour Packages
     </h1>
     <div class="bg-white pt-10">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -235,9 +883,8 @@
             Our schedule ensures that our guests fully enjoys their experience of their visit and we believe each
             journey should have memorable moments to be cherished.
           </p>
-
           <div class="bg-lime-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Colonial Cochin
             </p>
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
@@ -247,7 +894,6 @@
               Covering all the major attraction of city like Bolgatty Palace, Dutch Palace, Jews street, Jewish
               Synagogue
               etc.
-
               By evening 5:30 pm the excitements are regarded to end, we are upon to drop you back safely at 7:00 pm.
             </p>
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -304,7 +950,6 @@
                         </span>
                         <p class="ml-2">2hrs at Mattancheri</p>
                       </li>
-
                       <li class="flex items-start">
                         <span class="h-6 flex items-center sm:h-7">
                           <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
@@ -315,7 +960,6 @@
                         </span>
                         <p class="ml-2">Departure at 07:00 pm</p>
                       </li>
-
                       <li class="flex items-start">
                         <span class="h-6 flex items-center sm:h-7">
                           <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
@@ -326,7 +970,6 @@
                         </span>
                         <p class="ml-2">Breakfast and Lunch</p>
                       </li>
-
                     </div>
                     <p></p>
                   </div>
@@ -334,15 +977,13 @@
               </div>
             </div>
           </div>
-
           <div class="bg-yellow-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Floating Allepey
             </p>
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
               Explore the scenic backwaters of kuttanad with a cruise ride in houseboat. Wake up to the delightful sight
               of ducks swimming past your rooms and explore the rustic life that drifts by.
-
               The trip starts by a pickup time of 09:45 am from Cochin into teh extents of Alleppey, from where you will
               board your Houseboats for a cruise ride. The cruise will return by 5pm in the evening and we are off to
               drop you back safely at Cochin around 08:00 pm
@@ -401,7 +1042,6 @@
                         </span>
                         <p class="ml-2">Arrival back at Cochin at 08:00 pm</p>
                       </li>
-
                     </div>
                     <p></p>
                   </div>
@@ -409,19 +1049,15 @@
               </div>
             </div>
           </div>
-
           <div class="bg-rose-200 py-6 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Boundless Munnar
             </p>
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
               The capital city of Kerala, residing on the coasts of Arabian sea would b a tremendous experience to
               witness, a land famous for it's cultural and religious backgrounds welcomes.
-
               The package comprises of a complete sightseeing of lighthouse beach Kovalam, sri Padmanabhaswamy temple,
               Napier Museum with a morning pick up time of 09:30am and a drop at 05:30 pm.
-
-
             </p>
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">
               <div
@@ -478,7 +1114,6 @@
                         <p class="ml-2">Breakfast and lunch
                         </p>
                       </li>
-
                     </div>
                     <p></p>
                   </div>
@@ -486,20 +1121,16 @@
               </div>
             </div>
           </div>
-
           <div class="bg-blue-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Enshrined Trivandrum
             </p>
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
               Munnar, distinctively known as "Three rivers" is a fabulous blend of nature and we pioneer those beauties
               with you.
-
               The trip starts into the extents of Munnar from Cochin at 05:30am, and covering all those splendid
               attractions like Anamudi peak, tea plantation in Munnar, Pothenmedu, Mattupetty Dam, Devikulam etc. By
               evening 06:30PM the excitements are off to the end and we are upon to drop you back at Cochin at 09:30pm.
-
-
             </p>
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">
               <div
@@ -555,7 +1186,6 @@
                         </span>
                         <p class="ml-2">Arrival at cochin at 09:30 pm</p>
                       </li>
-
                     </div>
                     <p></p>
                   </div>
@@ -563,8 +1193,6 @@
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
@@ -572,13 +1200,9 @@
     </div>
     </div>
     </div>
-
   </section>
-
   <!-- packages ends -->
-
   <!-- our services starts -->
-
   <section id="services" class="">
     <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
       Services
@@ -592,7 +1216,6 @@
           </p>
           <div class="container mx-auto w-full">
             <div class="w-full flex flex-wrap content-center justify-around mx-auto px-2 py-12 md:px-6">
-
               <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
@@ -608,14 +1231,12 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
                     style="background-image: url(weekend_adventure_tour_packages.jpeg)">
                   </div>
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-pink-50 hover:bg-pink-500 hover:text-white">
-
                     <div class="header-content inline-flex ">
                       <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-pink-100">
                         <div class="h-2 w-2 rounded-full m-1 bg-pink-500 "></div>
@@ -624,15 +1245,12 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
                     style="background-image: url(customised_packages.jpeg)">
                   </div>
-
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
-
                     <div class="header-content inline-flex ">
                       <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
                         <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
@@ -641,15 +1259,12 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
                     style="background-image: url(car_rentals.jpeg)">
                   </div>
-
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
-
                     <div class="header-content inline-flex ">
                       <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
                         <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
@@ -658,15 +1273,12 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
                     style="background-image: url(https://images.pexels.com/photos/2272940/pexels-photo-2272940.jpeg?auto=compress&cs=tinysrgb&w=1600)">
                   </div>
-
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
-
                     <div class="header-content inline-flex ">
                       <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
                         <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
@@ -675,36 +1287,31 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
   </section>
-
   <!-- our services ends  -->
-
   <!-- contact us starts  -->
   <section id="contact">
-
     <h1 class="mx-auto text-4xl font-bold sm:text-center sm:text-6xl pt-20 pb-10 sm:pt-48 px-6 lg:px-8">
       Contact Us
     </h1>
-  <div class="bg-white pt-10 pb-10">
+    <div class="bg-white pt-10 pb-10">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="sm:text-center">
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              Best Service, Right Time, Right People
-            </p>
-              <p class="mt-2 text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Phone: <a href="tel:+919061140555">9061140555</a>
-              </p>
-              <p class="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Email: <a href="mailto:info@detravelcafe.com">info@detravelcafe.com</a>
-              </p>
-          </div>
+        <div class="sm:text-center">
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Best Service, Right Time, Right People
+          </p>
+          <p class="mt-2 text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Phone: <a href="tel:+919061140555">9061140555</a>
+          </p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Email: <a href="mailto:info@detravelcafe.com">info@detravelcafe.com</a>
+          </p>
+        </div>
       </div>
-  </div>
-
+    </div>
     <div class="mapouter">
       <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0"
           marginwidth="0"
@@ -717,28 +1324,23 @@
           width: 100%;
           height: 400px;
         }
-
         .gmap_canvas {
           overflow: hidden;
           background: none !important;
           width: 100%;
           height: 400px;
         }
-
         .gmap_iframe {
           height: 400px !important;
         }
       </style>
     </div>
-
     <!-- social chats  -->
-
     <a href="https://api.whatsapp.com/send?phone=919061140555&text=Hello%21%20." class="floating" target="_blank">
       <img src="whatsapp-icon-logo.png" alt="deTravelCafé">
     </a>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-
     <script>
       window.fbAsyncInit = function () {
         FB.init({
@@ -746,7 +1348,6 @@
           version: 'v15.0'
         });
       };
-
       (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -754,15 +1355,11 @@
         js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
-
     <!-- Your Chat Plugin code -->
     <div class="fb-customerchat" attribution="install_email" attribution_version="biz_inbox" page_id="284634392014010">
     </div>
-
   </section>
-
   <!-- contact us ends  -->
-
   <!-- footer starts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <footer class="relative bg-lime-500 pt-8 pb-6 text-amber-900">
@@ -775,24 +1372,21 @@
           </h5>
           <div class="mt-6 lg:mb-0 mb-6">
             <a href="https://twitter.com/@Detravelcafe" target="_blank">
-            <button
+              <button
                 class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button">
                 <img src="icons8-twitter.svg" alt="" srcset="">
-            
-            <a href="https://www.facebook.com/detravelcafe" target="_blank">
-              <button
-                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button">
-                <img src="icons8-facebook.svg" alt="" srcset="">
-         
-            <a href="https://www.instagram.com/detravelcafe/" target="_blank">
-              <button
-                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button">
-                <img src="icons8-instagram.svg" alt="" srcset="">
-     
-            <a href="https://www.instagram.com/detravelcafe/" target="_blank"></a></button></a>
+                <a href="https://www.facebook.com/detravelcafe" target="_blank">
+                  <button
+                    class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                    type="button">
+                    <img src="icons8-facebook.svg" alt="" srcset="">
+                    <a href="https://www.instagram.com/detravelcafe/" target="_blank">
+                      <button
+                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <img src="icons8-instagram.svg" alt="" srcset="">
+                        <a href="https://www.instagram.com/detravelcafe/" target="_blank"></a></button></a>
           </div>
         </div>
         <div class="w-full lg:w-6/12 px-4">
@@ -858,5 +1452,4 @@
   <!-- footer end -->
   <!-- <script src="https://www.webadder.com/webadder.min.js"></script> -->
 </body>
-
 </html>
