@@ -1,18 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Open Graph and SEO improvements -->
+  <!-- Update this og:image with your real 1200x630px branded image for best social sharing -->
+  <meta property="og:image" content="assets/images/og-image-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Enhanced nav hover/focus styles and scrollspy -->
+  <style>
+    .navbar-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.75);
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    .navbar-hidden {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    nav a {
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    nav a:focus, nav a:hover {
+      background: #f59e42;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-decoration: none;
+    }
+    nav a.active {
+      background: #f59e42;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      text-decoration: none;
+    }
+    .polo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.2);
+      transition: background 0.3s, backdrop-filter 0.3s, transform 0.3s;
+    }
+    .navbar-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.85) !important;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    html { scroll-behavior: smooth; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
+    .focus\:not-sr-only:focus { position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;border:inherit;z-index:9999; }
+  </style>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="deTravelCafe, Your perfect travel recipe" />
-  <meta name="author" content="webadder" />
-  <meta name="keywords"
-    content="#keralaholidaypackages #munnar #alleppeyhouseboat #keralatourism #travel #tourism #destination #adventure #resort #backwater #houseboatcruise #indiatourism #detravelcafe #dtc #perfect #travelreceipe #kerala #holiday #packages #thekkady #kovalam #beach #lakshadweep #honeymoon #family #holidayplanner #holidayinkerala #keralatour #placestoseeinkerala #detravelcafe" />
+  <meta name="description" content="deTravelCafé offers curated Kerala holiday packages, houseboat cruises, adventure tours, and family getaways. Discover the best of Kerala with personalized service and local expertise." />
+  <meta name="keywords" content="Kerala holiday packages, Munnar, Alleppey houseboat, Kerala tourism, travel, adventure, backwater, houseboat cruise, India tourism, deTravelCafé, holiday, Thekkady, Kovalam, beach, Lakshadweep, honeymoon, family, holiday planner, Kerala tour, sightseeing" />
+  <meta name="author" content="deTravelCafé" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://detravelcafe.github.io/" />
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="deTravelCafé - Kerala Holiday Packages & Houseboat Cruises" />
+  <meta property="og:description" content="Curated Kerala holiday packages, houseboat cruises, adventure tours, and family getaways. Discover Kerala with deTravelCafé." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://detravelcafe.github.io/" />
+  <meta property="og:image" content="https://detravelcafe.github.io/susu.png" />
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="deTravelCafé - Kerala Holiday Packages & Houseboat Cruises" />
+  <meta name="twitter:description" content="Curated Kerala holiday packages, houseboat cruises, adventure tours, and family getaways. Discover Kerala with deTravelCafé." />
+  <meta name="twitter:image" content="https://detravelcafe.github.io/susu.png" />
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+// Expanded JSON-LD with address, geo, and opening hours
+    {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "deTravelCafé",
+        "url": "https://detravelcafe.github.io/",
+        "logo": "https://detravelcafe.github.io/susu.png",
+        "description": "Curated Kerala holiday packages, houseboat cruises, adventure tours, and family getaways.",
+        "sameAs": [
+          "https://www.facebook.com/detravelcafe",
+          "https://www.instagram.com/detravelcafe/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-XXXXXXXXXX",
+          "contactType": "customer service",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "VIII/1544, 3rd Floor, Royal Plaza Bridge Road, Near Aluva",
+          "addressLocality": "Kochi",
+          "addressRegion": "Kerala",
+          "postalCode": "683101",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.106895,
+          "longitude": 76.351473
+        },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }]
+    }</script>
+  <!-- Preload logo for performance -->
+  <link rel="preload" as="image" href="assets/images/susu.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/susu.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="css/susu.min.css" /> <!-- Minified for speed -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/site.webmanifest">
   <!-- <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (
@@ -38,54 +151,74 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-T2DCHN4');</script>
   <!-- End Google Tag Manager -->
+  <style>
+    .navbar-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.75);
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <!-- Google Tag Manager (noscript) -->
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2DCHN4" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- hero section starts -->
-  <div class="w-full text-gray-700 fixed z-10 polo">
-    <a href="#" class="flex flex-col items-center polo">
-      <img class="hidden md:block md:h-24 lg:h-28 logoimg" src="susu.png" alt="de-TravelCafe" />
-    </a>
-    <div x-data="{ open: false }"
-      class="flex flex-col max-w-screen-2xl px-4 mx-auto md:items-center md:justify-between lg:flex-row md:px-6 lg:px-8">
-      <div class="flex flex-row items-center justify-between p-2 md:p-3 md:hidden">
-        <a class="rounded-sm md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-          <svg fill="rgb(140, 56, 4)" viewBox="0 0 20 20" class="w-6 h-6">
-            <path x-show="!open" fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-              clip-rule="evenodd"></path>
-            <path x-show="open" fill-rule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd" style="display: none"></path>
-          </svg>
+  <!-- hero section starts -->
+<a href="#main-content" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-white text-black p-2 z-50 rounded">Skip to main content</a>
+<!-- Compact header with logo and navigation side by side -->
+<div class="w-full text-gray-700 fixed z-10 polo transition-all duration-300">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between py-2">
+      <!-- Logo on the left for medium screens and up, centered on mobile -->
+      <div class="flex justify-center md:justify-start mb-2 md:mb-0">
+        <a href="#" class="flex items-center">
+          <img class="h-16 md:h-16 lg:h-20" src="assets/images/susu.png" alt="de-TravelCafe">
         </a>
-        <a href="#"
-          class="md:hidden text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-sm focus:outline-none focus:shadow-outline"><img
-            class="w-20 h-12 md:w-16 md:h-16 lg:h-20 lg:w-20" src="susu.png" alt="de-TravelCafe" /></a>
       </div>
-      <nav :class="{'flex': open, 'hidden': !open}"
-        class="flex-col flex-grow py-1 md:flex md:justify-center md:flex-row hidden">
-        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
-          href="#about">About</a>
-        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
-          href="#destinations">Destinations</a>
-        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
-          href="#packages">Packages</a>
-        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
-          href="#services">Services</a>
-        <a class="font-bold text-lg shadow inline flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-lime-500 rounded-sm md:w-auto md:inline md:mt-0 md:ml-4 text-amber-900 hover:text-white focus:text-white focus:text-white focus:outline-none focus:shadow-outline"
-          href="#contact">Contact Us</a>
+      
+      <!-- Navigation menu on the right for medium screens and up, hidden on mobile -->
+      <nav class="hidden md:flex flex-wrap justify-center space-x-1 md:space-x-2">
+        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#about">About</a>
+        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#destinations">Destinations</a>
+        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#packages">Packages</a>
+        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#services">Services</a>
+        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#contact">Contact Us</a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Mobile menu button and dropdown -->
+  <div x-data="{ open: false }" class="md:hidden absolute top-4 right-4">
+    <button class="rounded-sm p-1 bg-lime-500 focus:outline-none focus:shadow-outline" @click="open = !open">
+      <svg fill="rgb(140, 56, 4)" viewBox="0 0 20 20" class="w-6 h-6">
+        <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" style="display: none"></path>
+      </svg>
+    </button>
+    
+    <!-- Mobile navigation menu -->
+    <nav x-show="open" class="absolute right-0 mt-2 bg-white shadow-lg rounded-sm py-2 w-48 z-20" style="display: none;">
+      <div class="flex flex-col space-y-1 px-2">
+        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#about">About</a>
+        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#destinations">Destinations</a>
+        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#packages">Packages</a>
+        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#services">Services</a>
+        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#contact">Contact Us</a>
       </nav>
     </div>
   </div>
   <!-- vido bg starts  -->
-  <section class="mx-auto w-full showcase">
-    <video src="deTravelcafe.mp4" muted="" loop="" autoplay="" class=""></video>
+  <section class="mx-auto w-full showcase relative" id="main-content" style="margin-top:0;">
+    <video src="assets/videos/deTravelcafe.mp4" muted loop autoplay class=""></video>
     <div class="logo">
-      <img class="logoimg" src="susu.png" alt="de-TravelCafe" />
+      <picture>
+  <source srcset="assets/images/susu.webp" type="image/webp">
+  <img class="logoimg" src="assets/images/susu.png" alt="deTravelCafé logo - Kerala travel and holiday packages" width="433" height="219" />
+</picture>
     </div>
   </section>
   <!-- video bg ends -->
@@ -105,7 +238,7 @@
         </defs>
       </svg>
     </div>
-    <main id="about">
+    <main id="about" class="pt-24">
       <div class="relative px-6 lg:px-8">
         <div class="mx-auto max-w-3xl pt-20 sm:pt-48">
           <div>
@@ -149,7 +282,7 @@
     </main>
   </div>
   <!-- destinations start -->
-  <section id="destinations" class="">
+  <section id="destinations" class="px-4">
     <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
       Destinations
     </h1>
@@ -871,7 +1004,7 @@
       </div>
     </div>
   </section>
-  <section id="packages">
+  <section id="packages" class="px-4">
     <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
       <span class="text-lime-600"> Kerala </span> Day Tour Packages
     </h1>
@@ -883,7 +1016,7 @@
             Our schedule ensures that our guests fully enjoys their experience of their visit and we believe each
             journey should have memorable moments to be cherished.
           </p>
-          <div class="bg-lime-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
+          <div class="bg-lime-100 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
             <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Colonial Cochin
             </p>
@@ -977,7 +1110,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-yellow-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
+          <div class="bg-yellow-100 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
             <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Floating Allepey
             </p>
@@ -1049,7 +1182,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-rose-200 py-6 flex flex-col justify-center sm:py-12 mb-10">
+          <div class="bg-rose-200 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
             <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Boundless Munnar
             </p>
@@ -1121,7 +1254,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-blue-100 py-6 flex flex-col justify-center sm:py-12 mb-10">
+          <div class="bg-blue-100 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
             <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
               Enshrined Trivandrum
             </p>
@@ -1219,7 +1352,7 @@
               <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(houseboat_cruise.jpeg)">
+                    style="background-image: url(assets/images/houseboat_cruise.jpeg)">
                   </div>
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-purple-50 hover:bg-purple-500 hover:text-white">
@@ -1233,7 +1366,7 @@
                 </div>
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(weekend_adventure_tour_packages.jpeg)">
+                    style="background-image: url(assets/images/weekend_adventure_tour_packages.jpeg)">
                   </div>
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-pink-50 hover:bg-pink-500 hover:text-white">
@@ -1247,7 +1380,7 @@
                 </div>
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(customised_packages.jpeg)">
+                    style="background-image: url(assets/images/customised_packages.jpeg)">
                   </div>
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
@@ -1261,7 +1394,7 @@
                 </div>
                 <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
                   <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(car_rentals.jpeg)">
+                    style="background-image: url(assets/images/car_rentals.jpeg)">
                   </div>
                   <div
                     class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
@@ -1293,7 +1426,7 @@
   </section>
   <!-- our services ends  -->
   <!-- contact us starts  -->
-  <section id="contact">
+  <section id="contact" class="px-0">
     <h1 class="mx-auto text-4xl font-bold sm:text-center sm:text-6xl pt-20 pb-10 sm:pt-48 px-6 lg:px-8">
       Contact Us
     </h1>
@@ -1337,7 +1470,10 @@
     </div>
     <!-- social chats  -->
     <a href="https://api.whatsapp.com/send?phone=919061140555&text=Hello%21%20." class="floating" target="_blank">
-      <img src="whatsapp-icon-logo.png" alt="deTravelCafé">
+      <picture>
+  <source srcset="assets/images/whatsapp-icon-logo.webp" type="image/webp">
+  <img src="assets/images/whatsapp-icon-logo.png" alt="WhatsApp icon for deTravelCafé" loading="lazy" width="300" height="300">
+</picture>
     </a>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
@@ -1375,17 +1511,17 @@
               <button
                 class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button">
-                <img src="icons8-twitter.svg" alt="" srcset="">
+                <img src="assets/icons/icons8-twitter.svg" alt="Twitter icon for deTravelCafé" loading="lazy" width="32" height="32">
                 <a href="https://www.facebook.com/detravelcafe" target="_blank">
                   <button
                     class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                     type="button">
-                    <img src="icons8-facebook.svg" alt="" srcset="">
+                    <img src="assets/icons/icons8-facebook.svg" alt="deTravelCafé social icon" loading="lazy" width="32" height="32">
                     <a href="https://www.instagram.com/detravelcafe/" target="_blank">
                       <button
                         class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                         type="button">
-                        <img src="icons8-instagram.svg" alt="" srcset="">
+                        <img src="assets/icons/icons8-instagram.svg" alt="Instagram icon for deTravelCafé" loading="lazy" width="32" height="32">
                         <a href="https://www.instagram.com/detravelcafe/" target="_blank"></a></button></a>
           </div>
         </div>
@@ -1450,6 +1586,70 @@
     </div>
   </footer>
   <!-- footer end -->
-  <script src="https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js"></script>
+  </footer>
+  <!-- End of main content -->
+  <script src="https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js" defer></script>
+<script src="js/susu.min.js" defer></script> <!-- Minified for speed -->
+  <script>
+    // Navbar hide on scroll down, show on scroll up
+    let lastScrollY = window.scrollY;
+    const threshold = 20; // px before hiding
+    
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.polo');
+      if (!navbar) return;
+      
+      // Blur effect
+      if (window.scrollY > 0) {
+        navbar.classList.add('navbar-blur');
+      } else {
+        navbar.classList.remove('navbar-blur');
+      }
+      
+      // Hide/show based on scroll direction
+      if (window.scrollY <= 0) {
+        // Always show at top
+        navbar.classList.remove('navbar-hidden');
+      } else if (window.scrollY > lastScrollY && window.scrollY > threshold) {
+        // Scrolling down & past threshold
+        navbar.classList.add('navbar-hidden');
+      } else if (window.scrollY < lastScrollY) {
+        // Scrolling up (any amount)
+        navbar.classList.remove('navbar-hidden');
+      }
+      
+      lastScrollY = window.scrollY;
+    });
+  </script>
+  <!-- Scrollspy: highlight active nav link as you scroll -->
+  <script>
+    // Toggle navbar blur on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.polo');
+      if (window.scrollY > 0) {
+        navbar.classList.add('navbar-blur');
+      } else {
+        navbar.classList.remove('navbar-blur');
+      }
+    });
+
+    // Scrollspy for nav highlighting
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      function onScroll() {
+        let scrollPos = window.scrollY + 120; // Offset for sticky navbar
+        sections.forEach(section => {
+          if (section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            let link = document.querySelector('nav a[href="#' + section.id + '"]');
+            if (link) link.classList.add('active');
+          }
+        });
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    });
+  </script>
 </body>
 </html>
