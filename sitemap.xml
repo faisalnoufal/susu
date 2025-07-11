@@ -1,21 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+<!-- AI-Optimized Sitemap with Enhanced Semantic Information -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:semantic="http://www.semantic-sitemap.org/schemas/semantic/1.0"
+        xmlns:ai="http://www.ai-sitemap.org/schemas/ai/1.0"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+<!-- AI-Optimized Sitemap with Enhanced Semantic Information -->
 
 <url>
   <loc>https://detravelcafe.com/</loc>
-  <lastmod>2022-12-15T01:43:27+00:00</lastmod>
+  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
   <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://detravelcafe.com/about</loc>
-  <lastmod>2022-12-15T01:43:27+00:00</lastmod>
-  <priority>0.80</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>https://detravelcafe.com/assets/images/susu.png</image:loc>
+    <image:title>deTravelCafé Logo</image:title>
+  </image:image>
+  <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+    <DataObject type="document">
+      <Attribute name="title">deTravelCafé - Premium Kerala Holiday Packages & Luxury Houseboat Cruises</Attribute>
+      <Attribute name="description">deTravelCafé offers premium Kerala holiday packages, luxury houseboat cruises, adventure tours, and family getaways. Experience authentic Kerala with personalized service and local expertise.</Attribute>
+      <Attribute name="keywords">Kerala holiday packages, Munnar, Alleppey houseboat, Kerala tourism, travel, adventure, backwater, houseboat cruise, India tourism</Attribute>
+      <Attribute name="entity">TravelAgency</Attribute>
+    </DataObject>
+  </PageMap>
+  <!-- AI-optimized semantic extensions -->
+  <semantic:metadata>
+    <semantic:entity type="TravelAgency" id="deTravelCafe">
+      <semantic:property name="offers" value="KeralaHolidayPackages,HouseboatCruises,AdventureTours,FamilyGetaways" />
+      <semantic:property name="location" value="Kerala,India" />
+      <semantic:property name="specialization" value="LuxuryTravel,AuthenticExperiences" />
+    </semantic:entity>
+    <semantic:topics>
+      <semantic:topic>Kerala Tourism</semantic:topic>
+      <semantic:topic>Luxury Travel</semantic:topic>
+      <semantic:topic>Houseboat Experience</semantic:topic>
+      <semantic:topic>Cultural Tourism</semantic:topic>
+    </semantic:topics>
+  </semantic:metadata>
+  <ai:content>
+    <ai:intent>travel planning</ai:intent>
+    <ai:audience>luxury travelers, families, adventure seekers</ai:audience>
+    <ai:entities>Kerala, Houseboat, Adventure, Luxury, Family</ai:entities>
+  </ai:content>
+  <xhtml:link rel="alternate" hreflang="en" href="https://detravelcafe.com/" />
 </url>
 
+<url>
+  <loc>https://detravelcafe.com/about</loc>
+  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+  <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+    <DataObject type="document">
+      <Attribute name="title">About deTravelCafé - Kerala's Premier Travel Agency</Attribute>
+      <Attribute name="description">Learn about our journey, values, and commitment to providing exceptional Kerala travel experiences</Attribute>
+      <Attribute name="entity">Company Profile</Attribute>
+    </DataObject>
+  </PageMap>
+</url>
+
+<url>
+  <loc>https://detravelcafe.com/services</loc>
+  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+  <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+    <DataObject type="document">
+      <Attribute name="title">Kerala Travel Services - Customized Experiences</Attribute>
+      <Attribute name="description">Explore our premium travel services including houseboat cruises, adventure tours, and family getaways</Attribute>
+      <Attribute name="entity">Service Offerings</Attribute>
+    </DataObject>
+  </PageMap>
+</url>
+
+<url>
+  <loc>https://detravelcafe.com/packages</loc>
+  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+  <changefreq>weekly</changefreq>
+  <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+    <DataObject type="document">
+      <Attribute name="title">Kerala Holiday Packages - Curated Travel Experiences</Attribute>
+      <Attribute name="description">Browse our selection of premium Kerala holiday packages featuring top destinations like Munnar, Alleppey, and Thekkady</Attribute>
+      <Attribute name="entity">Product Catalog</Attribute>
+    </DataObject>
+  </PageMap>
+</url>
+
+<url>
+  <loc>https://detravelcafe.com/contact</loc>
+  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+  <changefreq>monthly</changefreq>
+  <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+    <DataObject type="document">
+      <Attribute name="title">Contact deTravelCafé - Plan Your Kerala Holiday</Attribute>
+      <Attribute name="description">Get in touch with our travel experts to plan your perfect Kerala holiday experience</Attribute>
+      <Attribute name="entity">Contact Information</Attribute>
+    </DataObject>
+  </PageMap>
+</url>
 
 </urlset>

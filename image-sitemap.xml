@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- AI-Optimized Image Sitemap with Enhanced Semantic Information -->
+  
+  <url>
+    <loc>https://detravelcafe.com/</loc>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/susu.png</image:loc>
+      <image:title>deTravelCafé - Kerala Travel Specialists</image:title>
+      <image:caption>Premium Kerala holiday packages and luxury experiences</image:caption>
+      <image:geo_location>Kerala, India</image:geo_location>
+      <image:license>https://detravelcafe.com/image-license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/hero-banner.jpg</image:loc>
+      <image:title>Kerala Backwaters Houseboat Experience</image:title>
+      <image:caption>Luxury houseboat cruising through the serene backwaters of Alleppey</image:caption>
+      <image:geo_location>Alleppey, Kerala, India</image:geo_location>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/packages</loc>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/munnar-tea-gardens.jpg</image:loc>
+      <image:title>Munnar Tea Plantations</image:title>
+      <image:caption>Lush green tea gardens nestled in the misty hills of Munnar</image:caption>
+      <image:geo_location>Munnar, Kerala, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/houseboat-premium.jpg</image:loc>
+      <image:title>Premium Kerala Houseboat</image:title>
+      <image:caption>Luxury houseboat with private bedrooms and premium amenities</image:caption>
+      <image:geo_location>Alleppey Backwaters, Kerala, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/thekkady-wildlife.jpg</image:loc>
+      <image:title>Periyar Wildlife Sanctuary</image:title>
+      <image:caption>Explore the diverse wildlife in Thekkady's Periyar National Park</image:caption>
+      <image:geo_location>Thekkady, Kerala, India</image:geo_location>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/services</loc>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/ayurveda-treatment.jpg</image:loc>
+      <image:title>Traditional Kerala Ayurvedic Treatments</image:title>
+      <image:caption>Authentic wellness therapies based on ancient Ayurvedic practices</image:caption>
+      <image:geo_location>Kerala, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/kathakali-performance.jpg</image:loc>
+      <image:title>Kathakali Cultural Performance</image:title>
+      <image:caption>Traditional Kerala dance drama with elaborate costumes and makeup</image:caption>
+      <image:geo_location>Kochi, Kerala, India</image:geo_location>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/about</loc>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/team-photo.jpg</image:loc>
+      <image:title>deTravelCafé Expert Team</image:title>
+      <image:caption>Our experienced travel specialists with deep local knowledge</image:caption>
+      <image:geo_location>Kochi, Kerala, India</image:geo_location>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/ai-faq.html</loc>
+    <image:image>
+      <image:loc>https://detravelcafe.com/assets/images/kerala-map.jpg</image:loc>
+      <image:title>Kerala Travel Map</image:title>
+      <image:caption>Detailed map of Kerala showing major tourist destinations</image:caption>
+      <image:geo_location>Kerala, India</image:geo_location>
+    </image:image>
+  </url>
+</urlset>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- AI-Optimized News Sitemap with Enhanced Semantic Information -->
+  
+  <url>
+    <loc>https://detravelcafe.com/news/kerala-tourism-reopening</loc>
+    <news:news>
+      <news:publication>
+        <news:name>deTravelCafé Travel Updates</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-10T14:30:00+05:30</news:publication_date>
+      <news:title>Kerala Tourism Fully Reopens with Enhanced Safety Protocols</news:title>
+      <news:keywords>Kerala tourism, travel safety, COVID protocols, tourism reopening</news:keywords>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/news/new-houseboat-fleet</loc>
+    <news:news>
+      <news:publication>
+        <news:name>deTravelCafé Travel Updates</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-05T10:15:00+05:30</news:publication_date>
+      <news:title>deTravelCafé Launches Premium Eco-Friendly Houseboat Fleet</news:title>
+      <news:keywords>luxury houseboats, eco-friendly tourism, Alleppey backwaters, sustainable travel</news:keywords>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/news/monsoon-travel-guide</loc>
+    <news:news>
+      <news:publication>
+        <news:name>deTravelCafé Travel Updates</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-28T09:45:00+05:30</news:publication_date>
+      <news:title>Monsoon Travel Guide: Experiencing Kerala's Green Season</news:title>
+      <news:keywords>monsoon tourism, Kerala rainy season, green tourism, off-season travel</news:keywords>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/news/ayurveda-wellness-packages</loc>
+    <news:news>
+      <news:publication>
+        <news:name>deTravelCafé Travel Updates</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-20T16:00:00+05:30</news:publication_date>
+      <news:title>New Ayurvedic Wellness Retreat Packages Launched</news:title>
+      <news:keywords>Ayurveda retreat, wellness tourism, health vacation, Kerala spa</news:keywords>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://detravelcafe.com/news/kerala-culinary-tours</loc>
+    <news:news>
+      <news:publication>
+        <news:name>deTravelCafé Travel Updates</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-15T11:30:00+05:30</news:publication_date>
+      <news:title>Introducing Specialized Kerala Culinary Tour Experiences</news:title>
+      <news:keywords>food tourism, Kerala cuisine, cooking classes, spice plantation tours</news:keywords>
+    </news:news>
+  </url>
+</urlset>
