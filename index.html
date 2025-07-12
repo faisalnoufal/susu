@@ -11,7 +11,8 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://detravelcafe.github.io/" />
   
-  <!-- Preload critical assets -->
+  <!-- Preload logo for performance with dimensions -->
+  <link rel="preload" href="assets/images/susu.webp" as="image" type="image/webp" fetchpriority="high" imagesizes="96px" imagesrcset="assets/images/susu.webp 250w">
   <link rel="preload" href="assets/images/susu.png" as="image" fetchpriority="high" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" />
   
@@ -27,6 +28,14 @@
   
   <!-- Critical CSS inlined for faster rendering -->
   <style>
+    /* Prevent logo size flicker */
+    .flex.items-center img[src="assets/images/susu.png"] {
+      width: auto !important;
+      height: 96px !important;
+      object-fit: contain !important;
+      max-width: none !important;
+      transition: none !important;
+    }
     /* Critical CSS for above-the-fold content - Optimized for performance */
     :root {
       /* Kerala-inspired color palette */
@@ -556,13 +565,13 @@
   <!-- hero section starts -->
 <a href="#main-content" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-white text-black p-2 z-50 rounded">Skip to main content</a>
 <!-- Compact header with logo and navigation side by side -->
-<div class="w-full fixed z-10 polo transition-all duration-300" style="color: var(--color-neutral-800); background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+<div class="w-full fixed z-10 polo transition-all duration-300" style="color: var(--color-neutral-800); background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); min-height: 100px;">
   <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center justify-between py-2">
+    <div class="flex flex-col md:flex-row items-center justify-between py-[29px]">
       <!-- Logo on the left for medium screens and up, centered on mobile -->
       <div class="flex justify-center md:justify-start mb-2 md:mb-0">
         <a href="#" class="flex items-center">
-          <img class="h-16 md:h-16 lg:h-20" src="assets/images/susu.png" alt="de-TravelCafe">
+          <img class="h-24 md:h-24 lg:h-28 py-[5px]" src="assets/images/susu.png" alt="de-TravelCafe" style="width: auto; height: 96px; object-fit: contain;" width="auto" height="96">
         </a>
       </div>
       
@@ -602,7 +611,11 @@
   </div>
   <!-- Enhanced hero section with video background and overlay content -->
   <section class="mx-auto w-full showcase relative h-[90vh] flex items-center justify-center" id="main-content" style="margin-top:0;">
-    <video src="assets/videos/deTravelcafe.mp4" muted loop autoplay class="object-cover w-full h-full absolute inset-0"></video>
+    <video src="assets/videos/deTravelcafe.mp4" muted loop autoplay playsinline disablePictureInPicture preload="auto" class="object-cover w-full h-full absolute inset-0" poster="assets/images/hero-bg.jpg">
+      <!-- Fallback for browsers that don't support video -->
+      <source src="assets/videos/deTravelcafe.mp4" type="video/mp4">
+      <img src="assets/images/hero-bg.jpg" alt="Kerala backwaters and landscapes" class="object-cover w-full h-full absolute inset-0">
+    </video>
     
     <!-- Dark overlay to improve text readability -->
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -610,11 +623,11 @@
     <div class="container mx-auto px-4 z-10 relative h-full flex items-center justify-center">
       <div class="flex flex-col items-center justify-center h-full">
         
-        <!-- Logo with animation above the card, smaller size -->
-        <div class="logo animate-fade-in mb-4">
+        <!-- Logo with fixed dimensions to prevent distortion -->
+        <div class="logo mb-4">
           <picture>
             <source srcset="assets/images/susu.webp" type="image/webp">
-            <img class="logoimg max-w-[200px] md:max-w-[250px] mx-auto" src="assets/images/susu.png" alt="deTravelCafé logo - Kerala travel and holiday packages" width="250" height="126" />
+            <img class="logoimg mx-auto" src="assets/images/susu.png" alt="deTravelCafé logo - Kerala travel and holiday packages" width="250" height="126" style="width: 250px; height: 126px; object-fit: contain;" fetchpriority="high" />
           </picture>
         </div>
         
@@ -2919,6 +2932,8 @@
     // Register resources with appropriate priorities
     
     // High priority - load immediately
+    loadScript('js/logo-fix.js', true, false, 'high'); // No defer for logo fix - highest priority
+    loadScript('js/video-fix.js', true, false, 'high'); // No defer for video fix
     loadScript('js/lcp-optimizer.js', true, false, 'high'); // No defer for LCP optimizer
     loadScript('js/fid-optimizer.js', true, false, 'high'); // No defer for FID optimizer
     loadScript('js/font-optimizer.js', true, true, 'high');
