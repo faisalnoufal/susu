@@ -6,33 +6,93 @@
   <meta property="og:image" content="assets/images/og-image-1200x630.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <!-- Enhanced nav hover/focus styles and scrollspy -->
+  <!-- Enhanced styling with Kerala-inspired color palette and modern effects -->
   <style>
+    :root {
+      /* Kerala-inspired color palette */
+      --color-primary: #8bc34a; /* Bright green for Kerala's lush landscapes */
+      --color-primary-light: #a4d070;
+      --color-primary-dark: #689f38;
+      --color-secondary: #ff9800; /* Orange for Kerala's spices and sunsets */
+      --color-secondary-light: #ffb74d;
+      --color-secondary-dark: #f57c00;
+      --color-accent: #03a9f4; /* Blue for Kerala's backwaters */
+      --color-accent-light: #4fc3f7;
+      --color-accent-dark: #0288d1;
+      --color-neutral-100: #f5f5f5;
+      --color-neutral-200: #eeeeee;
+      --color-neutral-300: #e0e0e0;
+      --color-neutral-400: #bdbdbd;
+      --color-neutral-500: #9e9e9e;
+      --color-neutral-600: #757575;
+      --color-neutral-700: #616161;
+      --color-neutral-800: #424242;
+      --color-neutral-900: #212121;
+      
+      /* Typography */
+      --font-family-heading: 'Poppins', sans-serif;
+      --font-family-body: 'Open Sans', sans-serif;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      
+      /* Transitions */
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.3s ease;
+      --transition-slow: 0.5s ease;
+      
+      /* Border radius */
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 1rem;
+      --radius-full: 9999px;
+    }
+    
+    /* Global styles */
+    body {
+      font-family: var(--font-family-body);
+      color: var(--color-neutral-800);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-family-heading);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-neutral-900);
+    }
+    
+    /* Navigation styles */
     .navbar-blur {
       backdrop-filter: blur(12px);
       background: rgba(255,255,255,0.75);
-      transition: background 0.3s, backdrop-filter 0.3s;
+      transition: background var(--transition-normal), backdrop-filter var(--transition-normal);
     }
+    
     .navbar-hidden {
       transform: translateY(-100%);
-      transition: transform 0.3s ease;
+      transition: transform var(--transition-normal);
     }
+    
     nav a {
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
       outline: none;
     }
+    
     nav a:focus, nav a:hover {
-      background: #f59e42;
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow-md);
       text-decoration: none;
     }
+    
     nav a.active {
-      background: #f59e42;
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      background: var(--color-secondary);
+      color: white;
+      box-shadow: var(--shadow-md);
       text-decoration: none;
     }
+    
     .polo {
       position: fixed;
       top: 0;
@@ -40,13 +100,120 @@
       width: 100%;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.2);
-      transition: background 0.3s, backdrop-filter 0.3s, transform 0.3s;
+      transition: background var(--transition-normal), backdrop-filter var(--transition-normal), transform var(--transition-normal);
     }
+    
     .navbar-blur {
       backdrop-filter: blur(12px);
       background: rgba(255,255,255,0.85) !important;
-      transition: background 0.3s, backdrop-filter 0.3s;
+      transition: background var(--transition-normal), backdrop-filter var(--transition-normal);
     }
+    
+    /* Enhanced sections */
+    .section-heading {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: var(--radius-full);
+    }
+    
+    .card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Hero section enhancements */
+    .showcase video {
+      object-fit: cover;
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-lg);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-secondary {
+      background-color: var(--color-secondary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--color-secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+
     html { scroll-behavior: smooth; }
     .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
     .focus\:not-sr-only:focus { position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;border:inherit;z-index:9999; }
@@ -170,7 +337,7 @@
   <!-- hero section starts -->
 <a href="#main-content" class="sr-only focus:not-sr-only absolute top-2 left-2 bg-white text-black p-2 z-50 rounded">Skip to main content</a>
 <!-- Compact header with logo and navigation side by side -->
-<div class="w-full text-gray-700 fixed z-10 polo transition-all duration-300">
+<div class="w-full fixed z-10 polo transition-all duration-300" style="color: var(--color-neutral-800); background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
   <div class="container mx-auto px-4">
     <div class="flex flex-col md:flex-row items-center justify-between py-2">
       <!-- Logo on the left for medium screens and up, centered on mobile -->
@@ -181,80 +348,98 @@
       </div>
       
       <!-- Navigation menu on the right for medium screens and up, hidden on mobile -->
-      <nav class="hidden md:flex flex-wrap justify-center space-x-1 md:space-x-2">
-        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#about">About</a>
-        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#destinations">Destinations</a>
-        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#packages">Packages</a>
-        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#services">Services</a>
-        <a class="font-bold text-sm md:text-base shadow inline-flex items-center px-3 py-1 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#contact">Contact Us</a>
+      <nav class="hidden md:flex flex-wrap justify-center">
+        <div class="flex flex-wrap gap-8 md:gap-10 lg:gap-12">
+          <a class="font-light text-xs md:text-sm shadow-sm inline-flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#about">About</a>
+          <a class="font-light text-xs md:text-sm shadow-sm inline-flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#destinations">Destinations</a>
+          <a class="font-light text-xs md:text-sm shadow-sm inline-flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#packages">Packages</a>
+          <a class="font-light text-xs md:text-sm shadow-sm inline-flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#services">Services</a>
+          <a class="font-light text-xs md:text-sm shadow-sm inline-flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#contact">Contact Us</a>
+        </div>
       </nav>
     </div>
   </div>
   
   <!-- Mobile menu button and dropdown -->
   <div x-data="{ open: false }" class="md:hidden absolute top-4 right-4">
-    <button class="rounded-sm p-1 bg-lime-500 focus:outline-none focus:shadow-outline" @click="open = !open">
-      <svg fill="rgb(140, 56, 4)" viewBox="0 0 20 20" class="w-6 h-6">
+    <button class="rounded-md p-2 shadow-sm transition-all duration-300" style="background-color: var(--color-primary-light);" @click="open = !open">
+      <svg style="fill: var(--color-secondary-dark);" viewBox="0 0 20 20" class="w-6 h-6">
         <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
         <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" style="display: none"></path>
       </svg>
     </button>
     
     <!-- Mobile navigation menu -->
-    <nav x-show="open" class="absolute right-0 mt-2 bg-white shadow-lg rounded-sm py-2 w-48 z-20" style="display: none;">
-      <div class="flex flex-col space-y-1 px-2">
-        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#about">About</a>
-        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#destinations">Destinations</a>
-        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#packages">Packages</a>
-        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#services">Services</a>
-        <a class="font-bold text-sm shadow flex items-center px-3 py-2 bg-lime-500 rounded-sm text-amber-900 hover:text-white focus:text-white" href="#contact">Contact Us</a>
-      </nav>
+    <nav x-show="open" class="absolute right-0 mt-2 shadow-lg rounded-md py-3 w-56 z-20" style="display: none; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);">
+      <div class="flex flex-col space-y-2 px-3">
+        <a class="font-light text-sm shadow-sm flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#about">About</a>
+        <a class="font-light text-sm shadow-sm flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#destinations">Destinations</a>
+        <a class="font-light text-sm shadow-sm flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#packages">Packages</a>
+        <a class="font-light text-sm shadow-sm flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#services">Services</a>
+        <a class="font-light text-sm shadow-sm flex items-center px-4 py-1 rounded-full transition-all duration-300 border border-transparent hover:border-amber-600" style="background-color: var(--color-primary-dark); color: white; font-weight: 500;" href="#contact">Contact Us</a>
+      </div>
+    </nav>
     </div>
   </div>
-  <!-- vido bg starts  -->
-  <section class="mx-auto w-full showcase relative" id="main-content" style="margin-top:0;">
-    <video src="assets/videos/deTravelcafe.mp4" muted loop autoplay class=""></video>
-    <div class="logo">
-      <picture>
-  <source srcset="assets/images/susu.webp" type="image/webp">
-  <img class="logoimg" src="assets/images/susu.png" alt="deTravelCafé logo - Kerala travel and holiday packages" width="433" height="219" />
-</picture>
+  <!-- Enhanced hero section with video background and overlay content -->
+  <section class="mx-auto w-full showcase relative h-[90vh] flex items-center justify-center" id="main-content" style="margin-top:0;">
+    <video src="assets/videos/deTravelcafe.mp4" muted loop autoplay class="object-cover w-full h-full absolute inset-0"></video>
+    
+    <!-- Dark overlay to improve text readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    
+    <div class="container mx-auto px-4 z-10 relative h-full">
+      <div class="flex flex-col items-center justify-center h-full">
+        
+        <!-- Logo with animation above the card, smaller size -->
+        <div class="logo animate-fade-in mb-4">
+          <picture>
+            <source srcset="assets/images/susu.webp" type="image/webp">
+            <img class="logoimg max-w-[200px] md:max-w-[250px] mx-auto" src="assets/images/susu.png" alt="deTravelCafé logo - Kerala travel and holiday packages" width="250" height="126" />
+          </picture>
+        </div>
+        
+        <!-- Hero content with animation - centered in the middle -->
+        <div class="hero-content text-white max-w-3xl animate-fade-in delay-200 bg-black bg-opacity-40 backdrop-filter backdrop-blur-sm p-6 rounded-lg shadow-lg">
+          
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white text-center">Discover the Magic of Kerala</h2>
+          <p class="text-lg md:text-xl mb-8 text-white text-center">Experience authentic Kerala with our curated holiday packages, houseboat cruises, and adventure tours.</p>
+          
+          <!-- Call to action buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#packages" class="btn-primary animate-fade-in delay-300">Explore Packages</a>
+            <a href="#contact" class="btn-secondary animate-fade-in delay-400">Contact Us</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <!-- video bg ends -->
-  <div class="isolate bg-white">
-    <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-      <svg
-        class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
-        viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3"
-          d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
-        <defs>
-          <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645"
-            gradientUnits="userSpaceOnUse">
-            <stop stop-color="#9089FC"></stop>
-            <stop offset="1" stop-color="#FF80B5"></stop>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-    <main id="about" class="pt-24">
-      <div class="relative px-6 lg:px-8">
-        <div class="mx-auto max-w-3xl pt-20 sm:pt-48">
-          <div>
-            <div>
-              <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
-                deTravelCafé
-              </h1>
-              <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center pt-10">
-                Holiday... The word itself is rejuvenating!! Some days out of
-                daily chores!!! Oh, who can resist the temptation. But.. Time
-                is the constraint. Here, We deTravelCafé, offers a number of
-                day tours to refill you with energy and thrill. We know each
-                of you have different choices. That's why we prefer customized
-                day tours. Hill stations, river cruising, beaches, jungle,
-                monuments, forts, museums, malls, shopping streets...
-                everything is there. Choice is yours. Our experts will design
+  <!-- Enhanced hero section ends -->
+  <div class="bg-white">
+    <main>
+      <!-- About section with modern card design -->
+      <section id="about" class="py-20 bg-neutral-100 relative z-10">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <!-- Section heading with underline effect -->
+            <h2 class="section-heading text-3xl md:text-4xl font-bold mb-12 text-center">About deTravelCafé</h2>
+            
+            <!-- Card with shadow and rounded corners -->
+            <div class="card bg-white p-6 md:p-8 animate-fade-in shadow-lg rounded-lg border border-gray-100">
+              <p class="text-lg leading-relaxed mb-6">
+                <span class="font-semibold text-xl text-primary-dark">Holiday...</span> The word itself is rejuvenating! Some days away from
+                daily chores! Oh, who can resist the temptation?
+              </p>
+              
+              <p class="text-lg leading-relaxed mb-6">
+                But time is often the constraint. Here at <span class="font-semibold">deTravelCafé</span>, we offer a variety of
+                day tours to refill you with energy and thrill. We understand that each traveler has different preferences,
+                which is why we specialize in customized day tours tailored to your interests.
+              </p>
+              
+              <p class="text-lg leading-relaxed">
+                Hill stations, river cruising, beaches, jungle adventures, monuments, forts, museums, shopping streets...
+                everything is available. The choice is yours, and our experts will design
                 it for you. Come, try a getaway from the maddening routines...
                 We are aware of your precious time. That's why we crafted
                 bunch of day tours for you.
@@ -281,25 +466,35 @@
       </div>
     </main>
   </div>
-  <!-- destinations start -->
-  <section id="destinations" class="px-4">
-    <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
-      Destinations
-    </h1>
-    <div class="bg-white pt-10">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="sm:text-center">
-          <p class="mt-2 text-3xl font-bold tracking-tight text-green-600 sm:text-4xl">
-            Kerala
-          </p>
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            A land mystical to its nature, a deep sense of contentment speakers
-            further taking us to deeper depths of inner peace!
-          </p>
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            God's own country kept a lot of surprises in her chest. Each
-            district beckons you with its genuinity and variety.
-          </p>
+  <!-- Enhanced destinations section with visual elements -->
+  <section id="destinations" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Section heading with underline effect -->
+      <h2 class="section-heading text-3xl md:text-4xl font-bold mb-12 text-center">Popular Destinations</h2>
+      
+      <!-- Kerala destination card with enhanced styling -->
+      <div class="max-w-5xl mx-auto">
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Image banner for Kerala -->
+          <div class="relative h-64 md:h-80 overflow-hidden">
+            <img src="assets/images/kerala-banner.jpg" alt="Beautiful Kerala landscape" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
+                 onerror="this.src='https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'; this.onerror=null;"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+              <h3 class="text-white text-3xl md:text-4xl font-bold p-6">Kerala</h3>
+            </div>
+          </div>
+          
+          <!-- Content with improved typography -->
+          <div class="p-6 md:p-8">
+            <p class="text-lg leading-relaxed mb-6 text-gray-700">
+              <span class="font-semibold text-xl" style="color: var(--color-primary-dark);">God's Own Country</span> — A land mystical in its nature, offering a deep sense of contentment that takes visitors to deeper depths of inner peace.
+            </p>
+            
+            <p class="text-lg leading-relaxed mb-6 text-gray-700">
+              Kerala keeps countless surprises in her chest. Each district beckons you with its genuineness and variety, from the serene backwaters of Alleppey to the misty hills of Munnar.
+            </p>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
             Temples, beaches, streets, museums, palaces, remains of royal
             decades.
@@ -984,445 +1179,974 @@
             Calicut Railway Station is a major railway station in the region.</p>
 
         </div>
-        <div class="sm:text-center">
-          <p class="mt-4 text-3xl font-bold tracking-tight text-blue-900 sm:text-4xl">
-            Karnataka
-          </p>
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            Vibrant worlds seamlessly meld into one another, a blend of heart stopping beauties carrying a way the
-            legacy of art and culture, Karnataka as a heritage.
-          </p>
-        </div>
-        <div class="sm:text-center">
-          <p class="mt-4 text-3xl font-bold tracking-tight text-yellow-900 sm:text-4xl">
-            Tamil Nadu
-          </p>
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            Cultural and traditional divinity of flawless hill station and long sunny beaches? you choose!!!
-            The land cherishes both. </p>
+
         </div>
       </div>
     </div>
   </section>
-  <section id="packages" class="px-4">
-    <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
-      <span class="text-lime-600"> Kerala </span> Day Tour Packages
-    </h1>
-    <div class="bg-white pt-10">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="sm:text-center">
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            Listen to the symphony of nature, God's own country.
-            Our schedule ensures that our guests fully enjoys their experience of their visit and we believe each
-            journey should have memorable moments to be cherished.
-          </p>
-          <div class="bg-lime-100 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
-              Colonial Cochin
+  <!-- Enhanced packages section with card-based design -->
+  <section id="packages" class="py-20 bg-neutral-50">
+    <div class="container mx-auto px-4">
+      <!-- Section heading with underline effect -->
+      <h2 class="section-heading text-3xl md:text-4xl font-bold mb-2 text-center">
+        <span style="color: var(--color-primary);">Kerala</span> Tour Packages
+      </h2>
+      <div class="w-24 h-1 mx-auto mb-6 rounded-full" style="background-color: var(--color-primary);"></div>
+      
+      <!-- Introduction text -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-lg leading-relaxed text-gray-700">
+          Listen to the symphony of nature in God's own country.
+          Our carefully crafted schedules ensure that our guests fully enjoy their experience, creating memorable moments to be cherished forever.
+        </p>
+      </div>
+      
+      <!-- Package cards container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        
+        <!-- Colonial Cochin Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/17220793/pexels-photo-17220793.jpeg" alt="Colonial Cochin Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/17220793/pexels-photo-17220793.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Full Day
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Colonial Cochin</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Explore the "Queen of the Arabian Sea" - a cluster of islands on the vast Vembanad Lake. This package includes complete sightseeing of Fort Kochi and Mattanchery, covering major attractions like Bolgatty Palace, Dutch Palace, Jews Street, and the Jewish Synagogue.
             </p>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              Cochin, more popular as the "Queen of the Arabian Sea", a cluster of islands on the vast expanses of the
-              Vembanad Lake. The package comprises of a complete sightseeing of Fort Kochi and Mattancheri. The trip
-              starts into the pitches of Cochin at 9:30 am within any convenient location in the city as preferred.
-              Covering all the major attraction of city like Bolgatty Palace, Dutch Palace, Jews street, Jewish
-              Synagogue
-              etc.
-              By evening 5:30 pm the excitements are regarded to end, we are upon to drop you back safely at 7:00 pm.
-            </p>
-            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-              <div
-                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-70 border border-gray-200">
-                <div class="max-w-md mx-auto">
-                  <div>
-                  </div>
-                  <div class="divide-y divide-gray-200">
-                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                      <ul class="list-disc space-y-2">
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Morning 09:00 am Arrival
-                          </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Accompanied by our cab driver
-                          </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">3hrs at Fort Kochi</p>
-                        </li>
-                      </ul>
-                      <li class="flex items-start">
-                        <span class="h-6 flex items-center sm:h-7">
-                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                        <p class="ml-2">2hrs at Mattancheri</p>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="h-6 flex items-center sm:h-7">
-                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                        <p class="ml-2">Departure at 07:00 pm</p>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="h-6 flex items-center sm:h-7">
-                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                        <p class="ml-2">Breakfast and Lunch</p>
-                      </li>
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Itinerary</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Itinerary item 1 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                    <p></p>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">09:00 AM - Arrival</h5>
+                    <p class="text-gray-600 text-sm mt-1">Pickup from your preferred location in Cochin</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Transportation</h5>
+                    <p class="text-gray-600 text-sm mt-1">Accompanied by our professional cab driver throughout the tour</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 3 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Fort Kochi</h5>
+                    <p class="text-gray-600 text-sm mt-1">3 hours exploring the historic Fort Kochi area</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 4 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Mattancheri</h5>
+                    <p class="text-gray-600 text-sm mt-1">2 hours exploring the historic Mattancheri area</p>
+                  </div>
+                </div>
+                <!-- Itinerary item 5 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">07:00 PM - Departure</h5>
+                    <p class="text-gray-600 text-sm mt-1">Return journey begins</p>
+                  </div>
+                </div>
+                <!-- Itinerary item 6 (final) -->
+                <div class="flex">
+                  <!-- Timeline dot only (no line) -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Meals Included</h5>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="bg-yellow-100 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
-              Floating Allepey
-            </p>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              Explore the scenic backwaters of kuttanad with a cruise ride in houseboat. Wake up to the delightful sight
-              of ducks swimming past your rooms and explore the rustic life that drifts by.
-              The trip starts by a pickup time of 09:45 am from Cochin into teh extents of Alleppey, from where you will
-              board your Houseboats for a cruise ride. The cruise will return by 5pm in the evening and we are off to
-              drop you back safely at Cochin around 08:00 pm
-            </p>
-            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-              <div
-                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200">
-                <div class="max-w-md mx-auto">
-                  <div>
-                  </div>
-                  <div class="divide-y divide-gray-200">
-                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                      <ul class="list-disc space-y-2">
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Breakfast and Lunch
-                          </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Departure from Cochin at 9:45am
-                          </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">Alleppey Cruise starts at 12 Noon</p>
-                        </li>
-                      </ul>
-                      <li class="flex items-start">
-                        <span class="h-6 flex items-center sm:h-7">
-                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                        <p class="ml-2">Arrival back at Cochin at 08:00 pm</p>
-                      </li>
-                    </div>
-                    <p></p>
-                  </div>
-                </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
               </div>
             </div>
           </div>
-          <div class="bg-rose-200 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
-              Boundless Munnar
+        </div>
+        <!-- Floating Allepey Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/14562744/pexels-photo-14562744.jpeg" 
+                 alt="Floating Allepey Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/14562744/pexels-photo-14562744.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Full Day
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Floating Allepey</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Explore the scenic backwaters of Kuttanad with a cruise ride in a traditional Kerala houseboat. Wake up to the delightful sight of ducks swimming past your rooms and experience the rustic life that drifts by on the shores of these serene waterways.
             </p>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              The capital city of Kerala, residing on the coasts of Arabian sea would b a tremendous experience to
-              witness, a land famous for it's cultural and religious backgrounds welcomes.
-              The package comprises of a complete sightseeing of lighthouse beach Kovalam, sri Padmanabhaswamy temple,
-              Napier Museum with a morning pick up time of 09:30am and a drop at 05:30 pm.
-            </p>
-            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-              <div
-                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200">
-                <div class="max-w-md mx-auto">
-                  <div>
-                  </div>
-                  <div class="divide-y divide-gray-200">
-                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                      <ul class="list-disc space-y-2">
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Pickup at morning 09:30 am, departure for sightseeing
-                          </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Accompanied by our cab driver </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">Arrval back at ciy by 05:30 pm
-                          </p>
-                        </li>
-                      </ul>
-                      <li class="flex items-start">
-                        <span class="h-6 flex items-center sm:h-7">
-                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                        <p class="ml-2">Breakfast and lunch
-                        </p>
-                      </li>
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Itinerary</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Itinerary item 1 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                    <p></p>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">09:45 AM - Departure</h5>
+                    <p class="text-gray-600 text-sm mt-1">Pickup from your preferred location in Cochin</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Meals Included</h5>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                  </div>
+                </div>
+                <!-- Itinerary item 3 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21c0 1.1-0.9 2-2 2H7c-1.1 0-2-0.9-2-2V5c0-1.1 0.9-2 2-2h5l2 3h3c1.1 0 2 0.9 2 2v13z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">12:00 PM - Houseboat Cruise</h5>
+                    <p class="text-gray-600 text-sm mt-1">Board the traditional Kerala houseboat for your backwater cruise</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 4 (final) -->
+                <div class="flex">
+                  <!-- Timeline dot only (no line) -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">08:00 PM - Return</h5>
+                    <p class="text-gray-600 text-sm mt-1">Arrival back at your preferred location in Cochin</p>
                   </div>
                 </div>
               </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
+              </div>
             </div>
           </div>
-          <div class="bg-blue-100 py-6 px-4 flex flex-col justify-center sm:py-12 mb-10">
-            <p class="mt-2 text-2xl font-bold tracking-tight text-amber-800">
-              Enshrined Trivandrum
+        </div>
+        
+        <!-- Boundless Munnar Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/3848200/pexels-photo-3848200.jpeg" 
+                 alt="Boundless Munnar Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/3848200/pexels-photo-3848200.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              2 Days
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Boundless Munnar</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Discover the breathtaking beauty of Munnar, known for its sprawling tea plantations, misty valleys, and stunning mountain views. This package offers a complete exploration of the Western Ghats' crown jewel, with visits to key attractions and plenty of time to soak in the natural splendor.
             </p>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              Munnar, distinctively known as "Three rivers" is a fabulous blend of nature and we pioneer those beauties
-              with you.
-              The trip starts into the extents of Munnar from Cochin at 05:30am, and covering all those splendid
-              attractions like Anamudi peak, tea plantation in Munnar, Pothenmedu, Mattupetty Dam, Devikulam etc. By
-              evening 06:30PM the excitements are off to the end and we are upon to drop you back at Cochin at 09:30pm.
-            </p>
-            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-              <div
-                class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-clip-padding bg-opacity-60 border border-gray-200">
-                <div class="max-w-md mx-auto">
-                  <div>
-                  </div>
-                  <div class="divide-y divide-gray-200">
-                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                      <ul class="list-disc space-y-2">
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Departure to Munnar from Cochin at 05:30 am
-                          </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">
-                            Accompanied by our cab driver </p>
-                        </li>
-                        <li class="flex items-start">
-                          <span class="h-6 flex items-center sm:h-7">
-                            <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </span>
-                          <p class="ml-2">Breakfast and Lunch
-                          </p>
-                        </li>
-                      </ul>
-                      <li class="flex items-start">
-                        <span class="h-6 flex items-center sm:h-7">
-                          <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </span>
-                        <p class="ml-2">Arrival at cochin at 09:30 pm</p>
-                      </li>
+            
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Itinerary</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Day 1 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
                     </div>
-                    <p></p>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Day 1: Departure & Tea Plantations</h5>
+                    <p class="text-gray-600 text-sm mt-1">09:30 AM pickup from Cochin, travel to Munnar with stops at scenic viewpoints</p>
                   </div>
                 </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Transportation</h5>
+                    <p class="text-gray-600 text-sm mt-1">Comfortable private vehicle with experienced driver throughout the tour</p>
+                  </div>
+                </div>
+                <!-- Itinerary item 3 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Return Time</h5>
+                    <p class="text-gray-600 text-sm mt-1">Arrival back at city by 05:30 PM after a day of exploration</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 4 (final) -->
+                <div class="flex">
+                  <!-- Timeline dot only (no line) -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Meals Included</h5>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enshrined Trivandrum Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                 alt="Enshrined Trivandrum Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Full Day
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Enshrined Trivandrum</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Discover the cultural and spiritual heart of Kerala in its capital city. This package takes you through the historic landmarks, temples, and museums of Trivandrum, offering insights into the rich heritage and traditions of God's Own Country.
+            </p>
+            
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Itinerary</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Day 1 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Day 1: Departure & Tea Plantations</h5>
+                    <p class="text-gray-600 text-sm mt-1">09:30 AM pickup from Cochin, travel to Munnar with stops at scenic viewpoints</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Transportation</h5>
+                    <p class="text-gray-600 text-sm mt-1">Comfortable private vehicle with experienced driver throughout the tour</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 3 -->
+                <div class="flex">
+                  <!-- Timeline dot and line -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div class="h-full w-0.5 bg-gray-200 mt-1"></div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Return Time</h5>
+                    <p class="text-gray-600 text-sm mt-1">Arrival back at city by 05:30 PM after a day of exploration</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 4 (final) -->
+                <div class="flex">
+                  <!-- Timeline dot only (no line) -->
+                  <div class="flex flex-col items-center mr-4">
+                    <div class="rounded-full h-8 w-8 flex items-center justify-center" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div>
+                    <h5 class="font-medium">Meals Included</h5>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Kerala packages ends -->
+
+  <!-- Karnataka packages starts -->
+  <section id="karnataka-packages" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Section heading with underline effect -->
+      <h2 class="section-heading text-3xl md:text-4xl font-bold mb-2 text-center">
+        <span style="color: var(--color-primary);">Karnataka</span> Tour Packages
+      </h2>
+      <div class="w-24 h-1 mx-auto mb-6 rounded-full" style="background-color: var(--color-primary);"></div>
+      
+      <!-- Introduction text -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-lg leading-relaxed text-gray-700">
+          Vibrant worlds seamlessly meld into one another, a blend of heart stopping beauties carrying a way the legacy of art and culture, Karnataka as a heritage.
+        </p>
+      </div>
+      
+      <!-- Package cards container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <!-- Mysore Palace Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/5480518/pexels-photo-5480518.jpeg" 
+                 alt="Mysore Palace Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/5480518/pexels-photo-5480518.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              2 Days
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Mysore Palace</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Explore the magnificent Mysore Palace, one of India's most famous royal residences and a treasure of Indo-Saracenic architecture. Experience the grandeur of the Wodeyar dynasty and witness the spectacular palace illumination in the evening.
+            </p>
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Highlights</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Itinerary item 1 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Guided Palace Tour</h5>
+                    <p class="text-gray-600 text-sm mt-1">Expert-guided tour of the palace interior, including the Durbar Hall and royal artifacts</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Evening Light Show</h5>
+                    <p class="text-gray-600 text-sm mt-1">Witness the palace illuminated with thousands of lights during the evening spectacle</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Coorg Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/457538/pexels-photo-457538.jpeg" 
+                 alt="Coorg Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/457538/pexels-photo-457538.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              3 Days
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Coorg Adventure</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Discover the misty hills and coffee plantations of Coorg, known as the 'Scotland of India'. Experience the region's natural beauty, adventure activities, and the unique culture of the Kodava people.
+            </p>
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Highlights</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Itinerary item 1 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Coffee Plantation Tour</h5>
+                    <p class="text-gray-600 text-sm mt-1">Visit a working coffee estate and learn about coffee production from bean to cup</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">River Rafting</h5>
+                    <p class="text-gray-600 text-sm mt-1">Experience the thrill of white water rafting in the Barapole River</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    </div>
-    </div>
+  </section>
+  <!-- Karnataka packages ends -->
+
+  <!-- Tamil Nadu packages starts -->
+  <section id="tamilnadu-packages" class="py-20 bg-neutral-50">
+    <div class="container mx-auto px-4">
+      <!-- Section heading with underline effect -->
+      <h2 class="section-heading text-3xl md:text-4xl font-bold mb-2 text-center">
+        <span style="color: var(--color-primary);">Tamil Nadu</span> Tour Packages
+      </h2>
+      <div class="w-24 h-1 mx-auto mb-6 rounded-full" style="background-color: var(--color-primary);"></div>
+      
+      <!-- Introduction text -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-lg leading-relaxed text-gray-700">
+          Cultural and traditional divinity of flawless hill station and long sunny beaches? you choose!!! The land cherishes both.
+        </p>
+      </div>
+      
+      <!-- Package cards container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <!-- Ooty Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/19935191/pexels-photo-19935191.jpeg" 
+                 alt="Ooty Hill Station Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/19935191/pexels-photo-19935191.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              3 Days
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Ooty Hill Station</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Discover the 'Queen of Hill Stations' nestled in the Nilgiri mountains. Experience the cool climate, lush tea gardens, and colonial charm of this beautiful hill station established by the British as their summer headquarters.
+            </p>
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Highlights</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Itinerary item 1 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Nilgiri Mountain Railway</h5>
+                    <p class="text-gray-600 text-sm mt-1">Ride the UNESCO heritage toy train through breathtaking mountain scenery</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Botanical Gardens</h5>
+                    <p class="text-gray-600 text-sm mt-1">Explore the 55-acre gardens with over 650 species of plants and trees</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mahabalipuram Package Card -->
+        <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+          <!-- Package image -->
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/12087907/pexels-photo-12087907.jpeg" 
+                 alt="Mahabalipuram Shore Temple Tour" 
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/12087907/pexels-photo-12087907.jpeg'; this.onerror=null;"
+            />
+            <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Full Day
+            </div>
+          </div>
+          
+          <!-- Package content -->
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--color-secondary-dark);">Mahabalipuram Temples</h3>
+            
+            <p class="text-gray-700 mb-4 flex-grow">
+              Explore the UNESCO World Heritage site of Mahabalipuram, featuring magnificent stone carvings and temples from the 7th and 8th centuries. Marvel at the Shore Temple, Arjuna's Penance, and the Five Rathas.
+            </p>
+            <!-- Package highlights and itinerary -->
+            <div class="mt-auto pt-4">
+              <h4 class="font-semibold text-lg mb-3">Tour Highlights</h4>
+              
+              <!-- Timeline style itinerary -->
+              <div class="space-y-4">
+                <!-- Itinerary item 1 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Shore Temple</h5>
+                    <p class="text-gray-600 text-sm mt-1">Visit the iconic 8th-century temple overlooking the Bay of Bengal</p>
+                  </div>
+                </div>
+                
+                <!-- Itinerary item 2 -->
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-10 w-10 rounded-md" style="background-color: var(--color-primary);">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- Itinerary content -->
+                  <div class="ml-4">
+                    <h5 class="font-medium">Krishna's Butter Ball</h5>
+                    <p class="text-gray-600 text-sm mt-1">Marvel at the giant balanced boulder that has defied gravity for centuries</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Package pricing and booking button -->
+              <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end">
+                <a href="#contact" class="px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <!-- packages ends -->
+  <!-- Tamil Nadu packages ends -->
+
   <!-- our services starts -->
-  <section id="services" class="">
-    <h1 class="text-4xl font-bold sm:text-center sm:text-6xl pt-20 sm:pt-48 px-6 lg:px-8">
-      Services
-    </h1>
-    <div class="bg-white pt-10">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="sm:text-center">
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            We exhibit a versatile way of coping up according to your wishes, satisfying and we rejoice your smile as
-            the greatest reward. Packages and services
-          </p>
-          <div class="container mx-auto w-full">
-            <div class="w-full flex flex-wrap content-center justify-around mx-auto px-2 py-12 md:px-6">
-              <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(assets/images/houseboat_cruise.jpeg)">
-                  </div>
-                  <div
-                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-purple-50 hover:bg-purple-500 hover:text-white">
-                    <div class="header-content inline-flex">
-                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
-                        <div class="h-2 w-2 rounded-full m-1 bg-purple-500 "></div>
-                      </div>
-                      <div class="category-title font-medium"> Houseboat Cruise </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(assets/images/weekend_adventure_tour_packages.jpeg)">
-                  </div>
-                  <div
-                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-pink-50 hover:bg-pink-500 hover:text-white">
-                    <div class="header-content inline-flex ">
-                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-pink-100">
-                        <div class="h-2 w-2 rounded-full m-1 bg-pink-500 "></div>
-                      </div>
-                      <div class="category-title font-medium"> Weekend & Adventure Tour packages</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(assets/images/customised_packages.jpeg)">
-                  </div>
-                  <div
-                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
-                    <div class="header-content inline-flex ">
-                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
-                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
-                      </div>
-                      <div class="category-title font-medium"> Customised packages</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(assets/images/car_rentals.jpeg)">
-                  </div>
-                  <div
-                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
-                    <div class="header-content inline-flex ">
-                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
-                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
-                      </div>
-                      <div class="category-title font-medium"> Car rentals</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-4 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-                  <div class="h-56 w-80 rounded-lg shadow-md bg-cover bg-center"
-                    style="background-image: url(https://images.pexels.com/photos/2272940/pexels-photo-2272940.jpeg?auto=compress&cs=tinysrgb&w=1600)">
-                  </div>
-                  <div
-                    class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-green-50 hover:bg-green-500 hover:text-white">
-                    <div class="header-content inline-flex ">
-                      <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
-                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
-                      </div>
-                      <div class="category-title font-medium"> Sightseeing</div>
-                    </div>
-                  </div>
-                </div>
+  <section id="services" class="py-12 bg-gradient-to-b from-white to-amber-50">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-2" style="color: var(--color-secondary-dark);">
+        Our Services
+      </h1>
+      <div class="w-24 h-1 mx-auto mb-6 rounded-full" style="background-color: var(--color-primary);"></div>
+      
+      <p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-600 text-center mb-12">
+        We offer a versatile range of travel services tailored to your wishes. Your satisfaction and smile are our greatest rewards.
+      </p>
+      <!-- Services grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        
+        <!-- Service Card 1: Houseboat Cruise -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <div class="relative h-56 overflow-hidden">
+            <img src="assets/images/houseboat_cruise.jpeg" alt="Kerala Houseboat Cruise" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute top-4 right-4">
+              <div class="rounded-full h-10 w-10 flex items-center justify-center" style="background-color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                </svg>
               </div>
             </div>
           </div>
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-secondary-dark);">Houseboat Cruise</h3>
+            <p class="text-gray-600 mb-4">Experience the tranquil backwaters of Kerala on our traditional houseboats, complete with modern amenities and authentic Kerala cuisine.</p>
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Enquire Now</a>
+          </div>
+        </div>
+        
+        <!-- Service Card 2: Weekend & Adventure Tours -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <div class="relative h-56 overflow-hidden">
+            <img src="assets/images/weekend_adventure_tour_packages.jpeg" alt="Weekend Adventure Tours" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute top-4 right-4">
+              <div class="rounded-full h-10 w-10 flex items-center justify-center" style="background-color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-secondary-dark);">Weekend & Adventure Tours</h3>
+            <p class="text-gray-600 mb-4">Perfect for thrill-seekers and nature lovers, our adventure packages include trekking, wildlife safaris, and cultural experiences.</p>
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Enquire Now</a>
+          </div>
+        </div>
+        
+        <!-- Service Card 3: Customized Packages -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <div class="relative h-56 overflow-hidden">
+            <img src="assets/images/customised_packages.jpeg" alt="Customized Tour Packages" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute top-4 right-4">
+              <div class="rounded-full h-10 w-10 flex items-center justify-center" style="background-color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-secondary-dark);">Customized Packages</h3>
+            <p class="text-gray-600 mb-4">We create personalized itineraries tailored to your preferences, budget, and schedule for a truly unique Kerala experience.</p>
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Enquire Now</a>
+          </div>
+        </div>
+        
+        <!-- Service Card 4: Car Rentals -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <div class="relative h-56 overflow-hidden">
+            <img src="assets/images/car_rentals.jpeg" alt="Car Rental Services" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute top-4 right-4">
+              <div class="rounded-full h-10 w-10 flex items-center justify-center" style="background-color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-secondary-dark);">Car Rentals</h3>
+            <p class="text-gray-600 mb-4">Explore Kerala at your own pace with our comfortable and reliable car rental services, complete with experienced drivers.</p>
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Enquire Now</a>
+          </div>
+        </div>
+        
+        <!-- Service Card 5: Airport Transfers -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/1730814/pexels-photo-1730814.jpeg" alt="Airport Transfer Services" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                 onerror="this.src='https://images.pexels.com/photos/1730814/pexels-photo-1730814.jpeg'; this.onerror=null;">
+            <div class="absolute top-4 right-4">
+              <div class="rounded-full h-10 w-10 flex items-center justify-center" style="background-color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-secondary-dark);">Airport Transfers</h3>
+            <p class="text-gray-600 mb-4">Hassle-free pickup and drop-off services between airports and your accommodation throughout Kerala.</p>
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Enquire Now</a>
+          </div>
+        </div>
+        <!-- Service Card 6: Sightseeing -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.pexels.com/photos/2272940/pexels-photo-2272940.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Kerala Sightseeing Tours" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute top-4 right-4">
+              <div class="rounded-full h-10 w-10 flex items-center justify-center" style="background-color: var(--color-primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col h-[calc(100%-14rem)]">
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-secondary-dark);">Sightseeing Tours</h3>
+            <p class="text-gray-600 mb-4">Guided tours to Kerala's most beautiful attractions, historical sites, and hidden gems with knowledgeable local guides.</p>
+            <a href="#contact" class="inline-block px-4 py-2 rounded-full text-white font-medium transition-all hover:opacity-90" style="background-color: var(--color-primary-dark);">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- our services ends  -->
   <!-- contact us starts  -->
@@ -1502,69 +2226,65 @@
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap text-left lg:text-left">
         <div class="w-full lg:w-6/12 px-4">
-          <h4 class="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
-          <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+          <h4 class="text-3xl font-semibold text-amber-950">Let's keep in touch!</h4>
+          <h5 class="text-lg mt-0 mb-2 text-amber-900 font-medium">
             Find us on any of these platforms, we respond 1-2 business days.
           </h5>
-          <div class="mt-6 lg:mb-0 mb-6">
-            <a href="https://twitter.com/@Detravelcafe" target="_blank">
-              <button
-                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button">
-                <img src="assets/icons/icons8-twitter.svg" alt="Twitter icon for deTravelCafé" loading="lazy" width="32" height="32">
-                <a href="https://www.facebook.com/detravelcafe" target="_blank">
-                  <button
-                    class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                    type="button">
-                    <img src="assets/icons/icons8-facebook.svg" alt="deTravelCafé social icon" loading="lazy" width="32" height="32">
-                    <a href="https://www.instagram.com/detravelcafe/" target="_blank">
-                      <button
-                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                        type="button">
-                        <img src="assets/icons/icons8-instagram.svg" alt="Instagram icon for deTravelCafé" loading="lazy" width="32" height="32">
-                        <a href="https://www.instagram.com/detravelcafe/" target="_blank"></a></button></a>
+          <div class="mt-6 lg:mb-0 mb-6 flex">
+            <a href="https://twitter.com/@Detravelcafe" target="_blank" class="mr-2">
+              <div class="bg-white shadow-lg h-10 w-10 flex items-center justify-center rounded-full outline-none focus:outline-none">
+                <img src="assets/icons/icons8-twitter.svg" alt="Twitter icon for deTravelCafé" loading="lazy" width="24" height="24" class="m-auto">
+              </div>
+            </a>
+            <a href="https://www.facebook.com/detravelcafe" target="_blank" class="mr-2">
+              <div class="bg-white shadow-lg h-10 w-10 flex items-center justify-center rounded-full outline-none focus:outline-none">
+                <img src="assets/icons/icons8-facebook.svg" alt="deTravelCafé social icon" loading="lazy" width="24" height="24" class="m-auto">
+              </div>
+            </a>
+            <a href="https://www.instagram.com/detravelcafe/" target="_blank" class="mr-2">
+              <div class="bg-white shadow-lg h-10 w-10 flex items-center justify-center rounded-full outline-none focus:outline-none">
+                <img src="assets/icons/icons8-instagram.svg" alt="Instagram icon for deTravelCafé" loading="lazy" width="24" height="24" class="m-auto">
+              </div>
+            </a>
           </div>
         </div>
         <div class="w-full lg:w-6/12 px-4">
           <div class="flex flex-wrap items-top mb-6">
             <div class="w-full lg:w-4/12 px-4 ml-auto">
-              <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+              <span class="block uppercase text-amber-950 text-sm font-semibold mb-2">Useful Links</span>
               <ul class="list-unstyled">
                 <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm"
                     href="#about">About Us</a>
                 </li>
                 <li>
-                  <!-- <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com?ref=njs-profile">Blog</a> -->
-                </li>
-                <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm"
                     href="#destinations">Destinations</a>
                 </li>
                 <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm"
                     href="#packages">Packages</a>
                 </li>
                 <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm"
                     href="#services">Services</a>
                 </li>
               </ul>
             </div>
             <div class="w-full lg:w-4/12 px-4">
-              <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+              <span class="block uppercase text-amber-950 text-sm font-semibold mb-2">Other Resources</span>
               <ul class="list-unstyled">
                 <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm"
                     href="/about">deTravelCafé
                   </a>
                 </li>
                 <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">Privacy
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm" href="#">Privacy
                     Policy</a>
                 </li>
                 <li>
-                  <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                  <a class="text-amber-900 hover:text-amber-950 font-medium block pb-2 text-sm"
                     href="#contact">Contact Us</a>
                 </li>
               </ul>
@@ -1575,18 +2295,17 @@
       <hr class="my-6 border-amber-900">
       <div class="flex flex-wrap items-center md:justify-between justify-center">
         <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-          <div class="text-sm text-amber-900 font-semibold py-1">
-            Copyright © <span id="">2017-
+          <div class="text-sm text-amber-950 font-semibold py-1">
+            Copyright © <span>2017-
               <script>document.write(new Date().getFullYear())</script>
-            </span><a href="#" class="text-blueGray-500 hover:text-gray-800">
-              de-TravelCafé
+            </span> <a href="#" class="text-amber-900 hover:text-amber-950">
+              de-TravelCafé</a>
           </div>
         </div>
       </div>
     </div>
   </footer>
   <!-- footer end -->
-  </footer>
   <!-- End of main content -->
   <script src="https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js" defer></script>
 <script src="js/susu.min.js" defer></script> <!-- Minified for speed -->
