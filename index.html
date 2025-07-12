@@ -27,6 +27,7 @@
   
   <!-- Critical CSS inlined for faster rendering -->
   <style>
+    /* Critical CSS for above-the-fold content - Optimized for performance */
     :root {
       /* Kerala-inspired color palette */
       --color-primary: #8bc34a; /* Bright green for Kerala's lush landscapes */
@@ -69,11 +70,116 @@
       --radius-full: 9999px;
     }
     
-    /* Global styles */
+    /* Reset */
+    * {box-sizing:border-box;margin:0;padding:0}
+    
+    /* Base styles */
     body {
       font-family: var(--font-family-body);
       color: var(--color-neutral-800);
-      line-height: 1.6;
+      line-height: 1.5;
+      text-rendering: optimizeSpeed;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-family-heading);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    
+    h1 {font-size: clamp(1.75rem, 5vw, 2.5rem)}
+    h2 {font-size: clamp(1.5rem, 4vw, 2rem)}
+    
+    /* Navigation */
+    .polo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      padding: 0.5rem 1rem;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar-blur {
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-hidden {transform: translateY(-100%)}
+    
+    /* Hero section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      z-index: 10;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      transform: translateZ(0);
+    }
+    
+    /* Animation for fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .delay-200 {animation-delay: 0.2s}
+    .delay-400 {animation-delay: 0.4s}
+    .delay-600 {animation-delay: 0.6s}
+    
+    /* Content-visibility for below-the-fold sections */
+    section:not(.hero) {content-visibility: auto; contain-intrinsic-size: 1px 500px}
+    
+    /* Font optimization - display swap to prevent FOIT */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+    }
+    
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -1465,7 +1571,7 @@
                   <!-- Itinerary content -->
                   <div>
                     <h5 class="font-medium">Meals Included</h5>
-                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast included in the package</p>
                   </div>
                 </div>
               </div>
@@ -1538,7 +1644,7 @@
                   <!-- Itinerary content -->
                   <div>
                     <h5 class="font-medium">Meals Included</h5>
-                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast included in the package</p>
                   </div>
                 </div>
                 <!-- Itinerary item 3 -->
@@ -1685,7 +1791,7 @@
                   <!-- Itinerary content -->
                   <div>
                     <h5 class="font-medium">Meals Included</h5>
-                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast included in the package</p>
                   </div>
                 </div>
               </div>
@@ -1797,7 +1903,7 @@
                   <!-- Itinerary content -->
                   <div>
                     <h5 class="font-medium">Meals Included</h5>
-                    <p class="text-gray-600 text-sm mt-1">Breakfast and lunch included in the package</p>
+                    <p class="text-gray-600 text-sm mt-1">Breakfast included in the package</p>
                   </div>
                 </div>
               </div>
@@ -2725,46 +2831,106 @@
   
   <!-- Resource Loader - Optimizes loading of CSS and JavaScript resources -->
   <script>
+    // Performance optimization configuration
+    const config = {
+      priority: {
+        high: [],       // Load immediately
+        medium: [],     // Load after DOMContentLoaded
+        low: []         // Load after page becomes interactive
+      },
+      timing: {
+        mediumDelay: 100,   // ms after DOMContentLoaded
+        lowDelay: 2000      // ms after DOMContentLoaded
+      }
+    };
+
     // Inline critical resource loader for performance
-    // Function to load CSS asynchronously
-    function loadCSS(href, media = 'all') {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = href;
-      link.media = 'print';
-      document.head.appendChild(link);
-      link.onload = function() { link.media = media; };
-      setTimeout(function() { link.media = media; }, 3000);
+    // Function to load CSS asynchronously with print-swap technique
+    function loadCSS(href, media = 'all', priority = 'medium') {
+      // Add to appropriate priority queue
+      config.priority[priority].push(function() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.media = 'print'; // Start as print to avoid render blocking
+        link.setAttribute('onload', "this.media='" + media + "'"); // Switch to target media when loaded
+        document.head.appendChild(link);
+        
+        // Fallback for browsers that don't support onload for link elements
+        setTimeout(function() {
+          link.media = media;
+        }, 3000);
+      });
     }
     
-    // Function to load JavaScript asynchronously
-    function loadScript(src, async = true, defer = true) {
-      const script = document.createElement('script');
-      script.src = src;
-      if (async) script.async = true;
-      if (defer) script.defer = true;
-      document.body.appendChild(script);
-      return script;
+    // Function to load JavaScript with appropriate attributes
+    function loadScript(src, async = true, defer = true, priority = 'medium') {
+      // Add to appropriate priority queue
+      config.priority[priority].push(function() {
+        const script = document.createElement('script');
+        script.src = src;
+        if (async) script.async = true;
+        if (defer) script.defer = true;
+        document.body.appendChild(script);
+        return script;
+      });
     }
     
-    // Load non-critical CSS
-    loadCSS('css/susu.min.css');
-    loadCSS('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+    // Function to execute callbacks in a priority queue
+    function executeQueue(queue) {
+      queue.forEach(function(callback) {
+        callback();
+      });
+    }
     
-    // Load critical scripts
-    document.addEventListener('DOMContentLoaded', function() {
-      // Load essential scripts
-      loadScript('js/susu.min.js', true, true);
+    // Schedule resource loading based on priority
+    function scheduleLoading() {
+      // Execute high priority immediately
+      executeQueue(config.priority.high);
       
-      // Load optimizers
-      loadScript('js/image-optimizer.js', true, true);
-      loadScript('js/third-party-optimizer.js', true, true);
+      // Execute medium priority after DOMContentLoaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(function() {
+            executeQueue(config.priority.medium);
+          }, config.timing.mediumDelay);
+        });
+      } else {
+        setTimeout(function() {
+          executeQueue(config.priority.medium);
+        }, config.timing.mediumDelay);
+      }
       
-      // Load non-essential scripts with delay
-      setTimeout(function() {
-        loadScript('https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js', true, true);
-      }, 2000);
-    });
+      // Execute low priority after a longer delay
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(function() {
+            executeQueue(config.priority.low);
+          }, config.timing.lowDelay);
+        });
+      } else {
+        setTimeout(function() {
+          executeQueue(config.priority.low);
+        }, config.timing.lowDelay);
+      }
+    }
+    
+    // Register resources with appropriate priorities
+    
+    // High priority - load immediately
+    loadScript('js/font-optimizer.js', true, true, 'high');
+    
+    // Medium priority - load after DOM is ready
+    loadCSS('css/susu.min.css', 'all', 'medium');
+    loadScript('js/susu.min.js', true, true, 'medium');
+    loadScript('js/image-optimizer.js', true, true, 'medium');
+    
+    // Low priority - load after page is interactive
+    loadScript('js/third-party-optimizer.js', true, true, 'low');
+    loadScript('https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js', true, true, 'low');
+    
+    // Start loading resources
+    scheduleLoading();
   </script>
   
   <!-- Core functionality - Combined for performance -->
