@@ -11,10 +11,17 @@
     scriptCategories: {
       critical: ['logo-fix.js', 'video-fix.js'],     // Scripts needed for core functionality
       functional: ['alpine.min.js'],                  // Scripts needed for important features
-      enhancement: ['lcp-optimizer.js', 'cls-optimizer.js', 'fid-optimizer.js'], // Scripts that enhance the experience
-      analytics: ['gtm.js', 'analytics.js', 'gtag'],  // Measurement and analytics scripts
+      enhancement: ['lcp-optimizer.js', 'cls-optimizer.js', 'fid-optimizer.js', 'tti-optimizer.js', 'tbt-optimizer.js'], // Scripts that enhance the experience
+      analytics: ['gtm.js', 'analytics.js', 'gtag', 'googletagmanager'],  // Measurement and analytics scripts
       advertising: [],                                // Ad-related scripts
-      social: ['facebook', 'connect.facebook.net']    // Social media widgets
+      social: ['facebook', 'connect.facebook.net', 'platform.twitter.com', 'instagram.com']    // Social media widgets
+    },
+    // Script execution strategies
+    execution: {
+      codeSplitting: true,              // Split large scripts into smaller chunks
+      lazyEvaluation: true,             // Only evaluate code when needed
+      treeShakinng: true,               // Remove unused code
+      modulePreloading: true            // Preload critical modules
     },
     // Timing configuration (in milliseconds)
     timing: {

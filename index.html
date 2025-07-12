@@ -2951,7 +2951,9 @@
     
     // High priority - load immediately
     // Load script-optimizer.js first to manage all other scripts
-    loadScript('js/script-optimizer.js', true, false, 'high'); // No defer for script optimizer
+    loadScript('js/script-optimizer.js', true, false, 'high'); // Main script optimizer - load first
+    loadScript('js/js-execution-optimizer.js', true, false, 'high'); // JS execution optimizer - load early
+    loadScript('js/render-blocking-optimizer.js', true, false, 'high'); // Render blocking optimizer - load early
     
     // Critical scripts for UI fixes and core web vitals
     loadScript('js/logo-fix.js', true, false, 'high'); // No defer for logo fix - highest priority
