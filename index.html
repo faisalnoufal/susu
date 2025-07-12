@@ -338,12 +338,13 @@
     .delay-300 { animation-delay: 0.3s; }
     .delay-400 { animation-delay: 0.4s; }
     .delay-500 { animation-delay: 0.5s; }
-
+    
+    /* Basic accessibility and UX improvements */
     html { scroll-behavior: smooth; }
     .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
     .focus\:not-sr-only:focus { position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;border:inherit;z-index:9999; }
   </style>
-
+  
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="deTravelCafé - Kerala Holiday Packages, Houseboat Cruises & Adventure Tours" />
   <meta property="og:description" content="Discover authentic Kerala with deTravelCafé's curated holiday packages, houseboat cruises, adventure tours, and family getaways." />
@@ -2918,12 +2919,16 @@
     // Register resources with appropriate priorities
     
     // High priority - load immediately
+    loadScript('js/lcp-optimizer.js', true, false, 'high'); // No defer for LCP optimizer
+    loadScript('js/fid-optimizer.js', true, false, 'high'); // No defer for FID optimizer
     loadScript('js/font-optimizer.js', true, true, 'high');
+    loadScript('js/cls-optimizer.js', true, true, 'high');
     
     // Medium priority - load after DOM is ready
     loadCSS('css/susu.min.css', 'all', 'medium');
     loadScript('js/susu.min.js', true, true, 'medium');
     loadScript('js/image-optimizer.js', true, true, 'medium');
+    loadScript('js/script-optimizer.js', true, true, 'medium');
     
     // Low priority - load after page is interactive
     loadScript('js/third-party-optimizer.js', true, true, 'low');
