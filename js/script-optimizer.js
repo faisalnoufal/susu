@@ -1,6 +1,7 @@
 /**
- * Script Optimizer for deTravelCafé
+ * Enhanced Script Optimizer for deTravelCafé
  * Reduces JavaScript execution time and optimizes third-party script loading
+ * Targets main-thread work reduction for better performance
  */
 
 (function() {
@@ -8,32 +9,44 @@
   const config = {
     // Script categories by impact on user experience
     scriptCategories: {
-      critical: [],     // Scripts needed for core functionality
-      functional: [],   // Scripts needed for important features
-      enhancement: [],  // Scripts that enhance the experience but aren't essential
-      analytics: [],    // Measurement and analytics scripts
-      advertising: [],  // Ad-related scripts
-      social: []        // Social media widgets
+      critical: ['logo-fix.js', 'video-fix.js'],     // Scripts needed for core functionality
+      functional: ['alpine.min.js'],                  // Scripts needed for important features
+      enhancement: ['lcp-optimizer.js', 'cls-optimizer.js', 'fid-optimizer.js'], // Scripts that enhance the experience
+      analytics: ['gtm.js', 'analytics.js', 'gtag'],  // Measurement and analytics scripts
+      advertising: [],                                // Ad-related scripts
+      social: ['facebook', 'connect.facebook.net']    // Social media widgets
     },
     // Timing configuration (in milliseconds)
     timing: {
-      functionalDelay: 1000,    // Delay for functional scripts
-      enhancementDelay: 2000,   // Delay for enhancement scripts
-      analyticsDelay: 3000,     // Delay for analytics scripts
-      advertisingDelay: 4000,   // Delay for advertising scripts
-      socialDelay: 5000         // Delay for social media scripts
+      functionalDelay: 500,     // Delay for functional scripts
+      enhancementDelay: 1000,   // Delay for enhancement scripts
+      analyticsDelay: 2000,     // Delay for analytics scripts
+      advertisingDelay: 3000,   // Delay for advertising scripts
+      socialDelay: 3500         // Delay for social media scripts
     },
     // User interaction triggers
     triggers: {
-      scroll: false,            // Load some scripts after first scroll
-      click: false,             // Load some scripts after first click
+      scroll: true,             // Load some scripts after first scroll
+      click: true,              // Load some scripts after first click
       idle: true                // Load some scripts during browser idle time
     },
     // Script execution optimization
     execution: {
       useRequestIdleCallback: true,  // Use requestIdleCallback when available
       useDynamicImport: true,        // Use dynamic imports for modules when possible
-      useWorkers: false              // Use Web Workers for heavy computation (advanced)
+      useWorkers: true,              // Use Web Workers for heavy computation
+      chunkSize: 5,                  // Process in small chunks to avoid long tasks
+      useRAF: true,                  // Use requestAnimationFrame for visual updates
+      debounceEvents: true,          // Debounce event handlers
+      throttleScrollEvents: true     // Throttle scroll events
+    },
+    // Performance budget settings
+    performance: {
+      maxScriptExecutionTime: 50,    // Maximum script execution time in ms
+      maxStyleRecalcTime: 10,        // Maximum style recalculation time in ms
+      maxLayoutTime: 10,             // Maximum layout time in ms
+      monitorLongTasks: true,        // Monitor long tasks
+      breakLongTasks: true           // Break long tasks into smaller chunks
     }
   };
 
@@ -101,137 +114,246 @@
     });
   }
 
-  // Load a script dynamically
+  // Monitor long tasks to detect main thread blocking
+  function setupLongTaskObserver() {
+    if (!config.performance.monitorLongTasks || !window.PerformanceObserver) return;
+    
+    try {
+      const observer = new PerformanceObserver((list) => {
+        list.getEntries().forEach(entry => {
+          // Log long tasks for debugging
+          console.warn('Long task detected:', {
+            duration: entry.duration.toFixed(2) + 'ms',
+            name: entry.name,
+            startTime: entry.startTime.toFixed(2) + 'ms'
+          });
+          
+          // Take action if needed
+          if (config.performance.breakLongTasks && entry.duration > 100) {
+            // Force a task break by yielding to the event loop
+            setTimeout(() => {}, 0);
+          }
+        });
+      });
+      
+      observer.observe({ entryTypes: ['longtask'] });
+    } catch (e) {
+      console.error('Long task observer setup failed:', e);
+    }
+  }
+  
+  // Break up heavy work into smaller chunks
+  function scheduleWork(items, processFn, chunkSize = config.execution.chunkSize) {
+    return new Promise(resolve => {
+      let index = 0;
+      
+      function processChunk() {
+        const start = performance.now();
+        const limit = Math.min(index + chunkSize, items.length);
+        
+        while (index < limit) {
+          processFn(items[index]);
+          index++;
+          
+          // Check if we're exceeding our time budget
+          if (performance.now() - start > config.performance.maxScriptExecutionTime) {
+            break;
+          }
+        }
+        
+        if (index < items.length) {
+          // Schedule next chunk using the most appropriate API
+          if (config.execution.useRequestIdleCallback && window.requestIdleCallback) {
+            requestIdleCallback(() => processChunk());
+          } else {
+            setTimeout(processChunk, 0);
+          }
+        } else {
+          resolve();
+        }
+      }
+      
+      processChunk();
+    });
+  }
+  
+  // Load a script dynamically with optimizations
   function loadScript(scriptInfo) {
     return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      
-      if (scriptInfo.src) {
-        script.src = scriptInfo.src;
-        script.async = scriptInfo.async !== false;
-        script.defer = scriptInfo.defer !== false;
+      // Use requestIdleCallback if available and appropriate
+      const createAndLoadScript = () => {
+        const script = document.createElement('script');
         
-        script.onload = () => resolve(script);
-        script.onerror = () => reject(new Error(`Failed to load script: ${scriptInfo.src}`));
-      } else if (scriptInfo.content) {
-        script.textContent = scriptInfo.content;
-        // For inline scripts, resolve immediately after appending
-        setTimeout(resolve, 0);
-      }
-      
-      // Insert at the original position if possible
-      if (scriptInfo.parent) {
-        if (scriptInfo.nextSibling) {
+        if (scriptInfo.src) {
+          script.src = scriptInfo.src;
+          script.async = scriptInfo.async !== false;
+          script.defer = scriptInfo.defer !== false;
+          
+          // Add resource hints for faster loading
+          const preconnect = document.createElement('link');
+          preconnect.rel = 'preconnect';
+          preconnect.href = new URL(scriptInfo.src).origin;
+          document.head.appendChild(preconnect);
+          
+          script.onload = () => resolve(script);
+          script.onerror = () => reject(new Error(`Failed to load script: ${scriptInfo.src}`));
+        } else if (scriptInfo.content) {
+          script.textContent = scriptInfo.content;
+          // For inline scripts, resolve immediately after appending
+          setTimeout(resolve, 0);
+        }
+        
+        // Append the script to the DOM
+        if (scriptInfo.parent) {
           scriptInfo.parent.insertBefore(script, scriptInfo.nextSibling);
         } else {
-          scriptInfo.parent.appendChild(script);
+          document.body.appendChild(script);
         }
-      } else {
-        document.body.appendChild(script);
-      }
+      };
       
-      // If no src, resolve immediately
-      if (!scriptInfo.src) {
-        resolve(script);
+      // Execute the script loading based on priority
+      if (config.execution.useRequestIdleCallback && window.requestIdleCallback) {
+        requestIdleCallback(() => createAndLoadScript());
+      } else {
+        setTimeout(createAndLoadScript, 0);
       }
     });
   }
 
-  // Schedule script loading based on priority
+  // Throttle function to limit execution frequency
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+
+  // Debounce function to delay execution until after events stop
+  function debounce(func, wait) {
+    let timeout;
+    return function() {
+      const context = this;
+      const args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
+
+  // Set up event listeners for user interactions
+  function setupEventListeners() {
+    if (config.triggers.scroll) {
+      const scrollHandler = config.execution.throttleScrollEvents ? 
+        throttle(() => { userInteraction.hasScrolled = true; }, 200) : 
+        () => { userInteraction.hasScrolled = true; };
+      
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+    }
+    
+    if (config.triggers.click) {
+      window.addEventListener('click', () => { userInteraction.hasClicked = true; }, { passive: true });
+    }
+    
+    if (config.triggers.idle && window.requestIdleCallback) {
+      requestIdleCallback(() => { userInteraction.isIdle = true; });
+    }
+  }
+
+  // Schedule script loading based on priority and user interaction
   function scheduleScriptLoading() {
+    // Setup long task observer
+    setupLongTaskObserver();
+    
+    // Setup event listeners
+    setupEventListeners();
+    
+    // Process scripts in chunks to avoid long tasks
+    const processScripts = (scripts) => {
+      return scheduleWork(scripts, loadScript);
+    };
+    
     // Load critical scripts immediately
-    Promise.all(config.scriptCategories.critical.map(loadScript))
+    processScripts(config.scriptCategories.critical)
       .catch(err => console.warn('Error loading critical scripts:', err));
     
     // Load functional scripts with a small delay
     setTimeout(() => {
-      Promise.all(config.scriptCategories.functional.map(loadScript))
+      processScripts(config.scriptCategories.functional)
         .catch(err => console.warn('Error loading functional scripts:', err));
     }, config.timing.functionalDelay);
     
     // Load enhancement scripts after a longer delay
     setTimeout(() => {
-      Promise.all(config.scriptCategories.enhancement.map(loadScript))
+      processScripts(config.scriptCategories.enhancement)
         .catch(err => console.warn('Error loading enhancement scripts:', err));
     }, config.timing.enhancementDelay);
     
-    // Schedule remaining scripts based on triggers
-    setupTriggers();
-  }
-
-  // Setup event triggers for delayed script loading
-  function setupTriggers() {
-    // Load analytics during idle time
-    if (config.triggers.idle && config.execution.useRequestIdleCallback && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(() => {
-        Promise.all(config.scriptCategories.analytics.map(loadScript))
-          .catch(err => console.warn('Error loading analytics scripts:', err));
-        userInteraction.isIdle = true;
-      }, { timeout: config.timing.analyticsDelay });
-    } else {
-      // Fallback to timeout
-      setTimeout(() => {
-        Promise.all(config.scriptCategories.analytics.map(loadScript))
-          .catch(err => console.warn('Error loading analytics scripts:', err));
-      }, config.timing.analyticsDelay);
-    }
+    // Schedule analytics scripts based on user interaction or delay
+    const loadAnalytics = () => {
+      processScripts(config.scriptCategories.analytics)
+        .catch(err => console.warn('Error loading analytics scripts:', err));
+    };
     
-    // Load advertising and social scripts after user interaction
-    if (config.triggers.scroll) {
-      const scrollHandler = () => {
-        if (userInteraction.hasScrolled) return;
-        userInteraction.hasScrolled = true;
-        
-        // Load advertising scripts
-        Promise.all(config.scriptCategories.advertising.map(loadScript))
-          .catch(err => console.warn('Error loading advertising scripts:', err));
-        
-        // Remove scroll listener after execution
-        window.removeEventListener('scroll', scrollHandler);
-      };
-      
-      window.addEventListener('scroll', scrollHandler, { passive: true });
-    } else {
-      // Fallback to timeout for advertising
-      setTimeout(() => {
-        Promise.all(config.scriptCategories.advertising.map(loadScript))
-          .catch(err => console.warn('Error loading advertising scripts:', err));
-      }, config.timing.advertisingDelay);
-    }
+    // Schedule social media scripts based on user interaction or delay
+    const loadSocial = () => {
+      processScripts(config.scriptCategories.social)
+        .catch(err => console.warn('Error loading social scripts:', err));
+    };
     
+    // Schedule advertising scripts based on user interaction or delay
+    const loadAdvertising = () => {
+      processScripts(config.scriptCategories.advertising)
+        .catch(err => console.warn('Error loading advertising scripts:', err));
+    };
+    
+    // Load analytics after delay or user interaction
+    setTimeout(() => {
+      loadAnalytics();
+    }, config.timing.analyticsDelay);
+    
+    // Load social media scripts after user interaction or longer delay
     if (config.triggers.click) {
-      const clickHandler = () => {
-        if (userInteraction.hasClicked) return;
-        userInteraction.hasClicked = true;
-        
-        // Load social scripts
-        Promise.all(config.scriptCategories.social.map(loadScript))
-          .catch(err => console.warn('Error loading social scripts:', err));
-        
-        // Remove click listener after execution
-        document.removeEventListener('click', clickHandler);
+      const checkForInteraction = () => {
+        if (userInteraction.hasClicked || userInteraction.hasScrolled) {
+          loadSocial();
+        } else {
+          setTimeout(checkForInteraction, 1000);
+        }
       };
-      
-      document.addEventListener('click', clickHandler, { passive: true });
+      setTimeout(checkForInteraction, 1000);
     } else {
-      // Fallback to timeout for social
-      setTimeout(() => {
-        Promise.all(config.scriptCategories.social.map(loadScript))
-          .catch(err => console.warn('Error loading social scripts:', err));
-      }, config.timing.socialDelay);
+      setTimeout(loadSocial, config.timing.socialDelay);
+    }
+    
+    // Load advertising scripts after longest delay
+    setTimeout(loadAdvertising, config.timing.advertisingDelay);
+  }
+  
+  // Initialize the script optimizer
+  function init() {
+    // Categorize scripts on the page
+    categorizeScripts();
+    
+    // Schedule script loading
+    scheduleScriptLoading();
+    
+    // Log performance info
+    if (window.performance && window.performance.timing) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const timing = window.performance.timing;
+          const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+          console.info(`Page load time: ${pageLoadTime}ms`);
+        }, 0);
+      });
     }
   }
-
-  // Initialize script optimization
-  function init() {
-    categorizeScripts();
-    scheduleScriptLoading();
-  }
-
-  // Run when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  
+  // Run the optimizer
+  init();
 })();

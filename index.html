@@ -515,8 +515,20 @@
   
   <!-- Preload logo for performance -->
   <link rel="preload" as="image" href="assets/images/susu.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/susu.min.css" /> <!-- Minified for speed -->
+  <!-- Preload Tailwind CSS to improve performance -->
+  <link rel="preload" href="https://cdn.tailwindcss.com/3.4.16" as="script" fetchpriority="high" crossorigin>
+  <script src="https://cdn.tailwindcss.com/3.4.16" defer></script>
+  <!-- Inline critical CSS from susu.min.css -->
+  <style>
+    /* Critical styles from susu.min.css */
+    @media (min-width: 768px) {
+      .md\:flex-row { flex-direction: row; }
+      .md\:justify-start { justify-content: flex-start; }
+      .md\:mb-0 { margin-bottom: 0; }
+    }
+  </style>
+  <!-- Load non-critical CSS with low priority -->
+  <link rel="stylesheet" href="css/susu.min.css" media="print" onload="this.media='all'" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
@@ -533,18 +545,25 @@
       document.documentElement.classList.remove("dark");
     }
   </script> -->
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <!-- Preload Alpine.js with better caching strategy -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" as="script" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kerala Holiday Packages & Tours | deTravelCafé</title>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-T2DCHN4');</script>
+  <!-- Google Tag Manager with improved loading strategy -->
+  <script>
+    // Defer Google Tag Manager loading to improve performance
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        (function(w,d,s,l,i){
+          w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+          var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+          j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+          f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T2DCHN4');
+      }, 2000); // Load after 2 seconds
+    });
+  </script>
   <!-- End Google Tag Manager -->
   <style>
     .navbar-blur {
@@ -2756,7 +2775,6 @@
   </section>
   <!-- contact us ends  -->
   <!-- footer starts -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <footer class="relative bg-lime-500 pt-8 pb-6 text-amber-900">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap text-left lg:text-left">
@@ -2932,18 +2950,23 @@
     // Register resources with appropriate priorities
     
     // High priority - load immediately
+    // Load script-optimizer.js first to manage all other scripts
+    loadScript('js/script-optimizer.js', true, false, 'high'); // No defer for script optimizer
+    
+    // Critical scripts for UI fixes and core web vitals
     loadScript('js/logo-fix.js', true, false, 'high'); // No defer for logo fix - highest priority
     loadScript('js/video-fix.js', true, false, 'high'); // No defer for video fix
     loadScript('js/lcp-optimizer.js', true, false, 'high'); // No defer for LCP optimizer
     loadScript('js/fid-optimizer.js', true, false, 'high'); // No defer for FID optimizer
-    loadScript('js/font-optimizer.js', true, true, 'high');
+    loadScript('js/tti-optimizer.js', true, false, 'high'); // No defer for TTI optimizer
+    loadScript('js/tbt-optimizer.js', true, false, 'high'); // No defer for TBT optimizer
     loadScript('js/cls-optimizer.js', true, true, 'high');
+    loadScript('js/font-optimizer.js', true, true, 'high');
     
     // Medium priority - load after DOM is ready
     loadCSS('css/susu.min.css', 'all', 'medium');
     loadScript('js/susu.min.js', true, true, 'medium');
     loadScript('js/image-optimizer.js', true, true, 'medium');
-    loadScript('js/script-optimizer.js', true, true, 'medium');
     
     // Low priority - load after page is interactive
     loadScript('js/third-party-optimizer.js', true, true, 'low');
