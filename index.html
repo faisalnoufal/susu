@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Performance optimized with critical CSS inlined and non-critical resources deferred -->
   <!-- Open Graph and SEO improvements -->
-  <!-- Enhanced styling with Kerala-inspired color palette and modern effects -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kerala holiday packages, houseboat cruises & adventure tours with deTravelCafé. Experience authentic Kerala with personalized service and local expertise." />
+  <meta name="keywords" content="Kerala holiday packages, Munnar, Alleppey houseboat, Kerala tourism, travel, adventure, backwater, houseboat cruise, India tourism, deTravelCafé, holiday, Thekkady, Kovalam, beach, Lakshadweep, honeymoon, family, holiday planner, Kerala tour, sightseeing" />
+  <meta name="author" content="deTravelCafé" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://detravelcafe.github.io/" />
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="/assets/images/susu.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="/css/critical.css" as="style" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" />
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  
+  <!-- Critical CSS inlined for faster rendering -->
   <style>
     :root {
       /* Kerala-inspired color palette */
@@ -215,13 +235,6 @@
     .focus\:not-sr-only:focus { position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;border:inherit;z-index:9999; }
   </style>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kerala holiday packages, houseboat cruises & adventure tours with deTravelCafé. Experience authentic Kerala with personalized service and local expertise." />
-  <meta name="keywords" content="Kerala holiday packages, Munnar, Alleppey houseboat, Kerala tourism, travel, adventure, backwater, houseboat cruise, India tourism, deTravelCafé, holiday, Thekkady, Kovalam, beach, Lakshadweep, honeymoon, family, holiday planner, Kerala tour, sightseeing" />
-  <meta name="author" content="deTravelCafé" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://detravelcafe.github.io/" />
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="deTravelCafé - Kerala Holiday Packages, Houseboat Cruises & Adventure Tours" />
   <meta property="og:description" content="Discover authentic Kerala with deTravelCafé's curated holiday packages, houseboat cruises, adventure tours, and family getaways." />
@@ -238,11 +251,6 @@
   <meta name="twitter:title" content="deTravelCafé - Kerala Holiday Packages, Houseboat Cruises & Adventure Tours">
   <meta name="twitter:description" content="Discover authentic Kerala with deTravelCafé's curated holiday packages, houseboat cruises, adventure tours, and family getaways.">
   <meta name="twitter:image" content="assets/images/og-image-1200x630.jpg">
-  
-  <!-- Additional SEO meta tags -->
-  <meta name="keywords" content="Kerala travel, Kerala holiday packages, Kerala houseboat, Kerala backwaters, Munnar, Thekkady, Alleppey, Wayanad, Kerala tour packages, Kerala tourism" />
-  <meta name="author" content="deTravelCafé" />
-  <meta name="robots" content="index, follow" />
 
   <!-- JSON-LD Structured Data -->
   <!-- Main Business Structured Data -->  
@@ -2711,56 +2719,83 @@
   </footer>
   <!-- footer end -->
   <!-- End of main content -->
-  <script src="https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js" defer></script>
-<script src="js/susu.min.js" defer></script> <!-- Minified for speed -->
+  
+  <!-- Resource Loader - Optimizes loading of CSS and JavaScript resources -->
   <script>
-    // Navbar hide on scroll down, show on scroll up
-    let lastScrollY = window.scrollY;
-    const threshold = 20; // px before hiding
+    // Inline critical resource loader for performance
+    // Function to load CSS asynchronously
+    function loadCSS(href, media = 'all') {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.media = 'print';
+      document.head.appendChild(link);
+      link.onload = function() { link.media = media; };
+      setTimeout(function() { link.media = media; }, 3000);
+    }
     
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.polo');
-      if (!navbar) return;
+    // Function to load JavaScript asynchronously
+    function loadScript(src, async = true, defer = true) {
+      const script = document.createElement('script');
+      script.src = src;
+      if (async) script.async = true;
+      if (defer) script.defer = true;
+      document.body.appendChild(script);
+      return script;
+    }
+    
+    // Load non-critical CSS
+    loadCSS('/css/susu.min.css');
+    loadCSS('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+    
+    // Load critical scripts
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load essential scripts
+      loadScript('js/susu.min.js', true, true);
       
-      // Blur effect
-      if (window.scrollY > 0) {
-        navbar.classList.add('navbar-blur');
-      } else {
-        navbar.classList.remove('navbar-blur');
-      }
-      
-      // Hide/show based on scroll direction
-      if (window.scrollY <= 0) {
-        // Always show at top
-        navbar.classList.remove('navbar-hidden');
-      } else if (window.scrollY > lastScrollY && window.scrollY > threshold) {
-        // Scrolling down & past threshold
-        navbar.classList.add('navbar-hidden');
-      } else if (window.scrollY < lastScrollY) {
-        // Scrolling up (any amount)
-        navbar.classList.remove('navbar-hidden');
-      }
-      
-      lastScrollY = window.scrollY;
+      // Load non-essential scripts with delay
+      setTimeout(function() {
+        loadScript('https://cdn.jsdelivr.net/gh/faisalnoufal/webadder/webadder.min.js', true, true);
+      }, 2000);
     });
   </script>
-  <!-- Scrollspy: highlight active nav link as you scroll -->
+  
+  <!-- Core functionality - Combined for performance -->
   <script>
-    // Toggle navbar blur on scroll
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.polo');
-      if (window.scrollY > 0) {
-        navbar.classList.add('navbar-blur');
-      } else {
-        navbar.classList.remove('navbar-blur');
-      }
-    });
-
-    // Scrollspy for nav highlighting
+    // Navbar and scrolling functionality
     document.addEventListener('DOMContentLoaded', function() {
+      // Navbar hide on scroll down, show on scroll up
+      let lastScrollY = window.scrollY;
+      const threshold = 20;
+      const navbar = document.querySelector('.polo');
+      
+      function handleScroll() {
+        if (!navbar) return;
+        
+        // Blur effect
+        if (window.scrollY > 0) {
+          navbar.classList.add('navbar-blur');
+        } else {
+          navbar.classList.remove('navbar-blur');
+        }
+        
+        // Hide/show based on scroll direction
+        if (window.scrollY <= 0) {
+          navbar.classList.remove('navbar-hidden');
+        } else if (window.scrollY > lastScrollY && window.scrollY > threshold) {
+          navbar.classList.add('navbar-hidden');
+        } else if (window.scrollY < lastScrollY) {
+          navbar.classList.remove('navbar-hidden');
+        }
+        
+        lastScrollY = window.scrollY;
+      }
+      
+      // Scrollspy for nav highlighting
       const sections = document.querySelectorAll('section[id]');
       const navLinks = document.querySelectorAll('nav a[href^="#"]');
-      function onScroll() {
+      
+      function handleScrollspy() {
         let scrollPos = window.scrollY + 120; // Offset for sticky navbar
         sections.forEach(section => {
           if (section.offsetTop <= scrollPos && (section.offsetTop + section.offsetHeight) > scrollPos) {
@@ -2770,23 +2805,24 @@
           }
         });
       }
-      window.addEventListener('scroll', onScroll);
-      onScroll();
-    });
-  </script>
-  
-  <!-- FAQ Functionality -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+      
+      // Combine scroll handlers for better performance
+      function onScroll() {
+        handleScroll();
+        handleScrollspy();
+      }
+      
+      // Use passive event listener for better scrolling performance
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // Initial call
+      
       // FAQ accordion functionality
       const faqQuestions = document.querySelectorAll('.faq-question');
-      
       faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
           const answer = this.nextElementSibling;
           const arrow = this.querySelector('.faq-arrow');
           
-          // Toggle the answer visibility
           if (answer.classList.contains('hidden')) {
             answer.classList.remove('hidden');
             arrow.classList.add('rotate-180');
@@ -2796,49 +2832,41 @@
           }
         });
       });
-    });
-  </script>
-  
-  <!-- Image Optimization and Lazy Loading -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Lazy load images
-      const lazyImages = document.querySelectorAll('img[data-src]');
       
+      // Lazy load images with IntersectionObserver
       if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const img = entry.target;
-              img.src = img.dataset.src;
-              img.removeAttribute('data-src');
-              imageObserver.unobserve(img);
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+              }
             }
           });
+        }, {
+          rootMargin: '200px 0px', // Start loading 200px before they come into view
+          threshold: 0.01
         });
         
-        lazyImages.forEach(img => imageObserver.observe(img));
-      } else {
-        // Fallback for browsers that don't support IntersectionObserver
-        lazyImages.forEach(img => {
-          img.src = img.dataset.src;
-          img.removeAttribute('data-src');
+        // Observe all images with data-src
+        document.querySelectorAll('img[data-src]').forEach(img => {
+          imageObserver.observe(img);
+        });
+        
+        // Find images without data-src and convert them
+        document.querySelectorAll('img:not([data-src])').forEach(img => {
+          // Skip images that are already loaded, don't have a src, or are small icons
+          if (!img.src || img.complete || img.width < 50 || img.height < 50) return;
+          
+          // Set data-src and remove src to enable lazy loading
+          img.dataset.src = img.src;
+          img.removeAttribute('src');
+          imageObserver.observe(img);
         });
       }
-      
-      // Convert non-lazy-loaded images to use data-src for lazy loading
-      const allImages = document.querySelectorAll('img:not([data-src])');
-      allImages.forEach(img => {
-        // Skip images that are already loaded or don't have a src
-        if (!img.src || img.complete) return;
-        
-        // Skip small images like icons
-        if (img.width < 50 || img.height < 50) return;
-        
-        // Set data-src and remove src to enable lazy loading
-        img.dataset.src = img.src;
-        img.removeAttribute('src');
-      });
     });
   </script>
 </body>
