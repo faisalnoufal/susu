@@ -12,8 +12,7 @@
   <link rel="canonical" href="https://detravelcafe.github.io/" />
   
   <!-- Preload critical assets -->
-  <link rel="preload" href="/assets/images/susu.png" as="image" fetchpriority="high" />
-  <link rel="preload" href="/css/critical.css" as="style" />
+  <link rel="preload" href="assets/images/susu.png" as="image" fetchpriority="high" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" />
   
   <!-- Preconnect to external domains -->
@@ -21,6 +20,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  
+  <!-- DNS prefetch for third-party domains -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
   
   <!-- Critical CSS inlined for faster rendering -->
   <style>
@@ -2745,13 +2748,17 @@
     }
     
     // Load non-critical CSS
-    loadCSS('/css/susu.min.css');
+    loadCSS('css/susu.min.css');
     loadCSS('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
     
     // Load critical scripts
     document.addEventListener('DOMContentLoaded', function() {
       // Load essential scripts
       loadScript('js/susu.min.js', true, true);
+      
+      // Load optimizers
+      loadScript('js/image-optimizer.js', true, true);
+      loadScript('js/third-party-optimizer.js', true, true);
       
       // Load non-essential scripts with delay
       setTimeout(function() {
