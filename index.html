@@ -2951,17 +2951,13 @@
     
     // High priority - load immediately
     // Load script-optimizer.js first to manage all other scripts
-    loadScript('js/script-optimizer.js', true, false, 'high'); // Main script optimizer - load first
-    loadScript('js/js-execution-optimizer.js', true, false, 'high'); // JS execution optimizer - load early
-    loadScript('js/render-blocking-optimizer.js', true, false, 'high'); // Render blocking optimizer - load early
+    loadScript('js/script-optimizer.js', true, false, 'high'); // No defer for script optimizer
     
     // Critical scripts for UI fixes and core web vitals
     loadScript('js/logo-fix.js', true, false, 'high'); // No defer for logo fix - highest priority
     loadScript('js/video-fix.js', true, false, 'high'); // No defer for video fix
     loadScript('js/lcp-optimizer.js', true, false, 'high'); // No defer for LCP optimizer
     loadScript('js/fid-optimizer.js', true, false, 'high'); // No defer for FID optimizer
-    loadScript('js/tti-optimizer.js', true, false, 'high'); // No defer for TTI optimizer
-    loadScript('js/tbt-optimizer.js', true, false, 'high'); // No defer for TBT optimizer
     loadScript('js/cls-optimizer.js', true, true, 'high');
     loadScript('js/font-optimizer.js', true, true, 'high');
     
