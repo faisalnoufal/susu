@@ -64,10 +64,35 @@
   AddOutputFilterByType DEFLATE font/woff
   AddOutputFilterByType DEFLATE font/woff2
   AddOutputFilterByType DEFLATE image/svg+xml
+  
+  # Add Vary header for proper caching
+  <IfModule mod_headers.c>
+    Header append Vary User-Agent env=!dont-vary
+  </IfModule>
+  
+  # Compression level (0-9, 9 being highest)
+  DeflateCompressionLevel 9
+  
+  # Enable compression for all file types not listed above
+  <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/css text/javascript application/javascript application/x-javascript text/x-component text/html text/richtext text/plain text/xsd text/xsl text/xml image/svg+xml application/json
+    AddOutputFilterByType DEFLATE application/java application/msword application/vnd.ms-fontobject application/x-msdownload image/x-icon application/x-font-ttf application/vnd.ms-opentype application/vnd.ms-fontobject
+  </IfModule>
+</IfModule>
+
+# Enable Brotli compression if available (for modern browsers)
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml
+  BrotliCompressionQuality 11
 </IfModule>
 
 # Set security headers
 <IfModule mod_headers.c>
+  # Add compression testing header to verify compression is working
+  Header append X-Compression "enabled"
+  
+  # Set content language
+  Header set Content-Language "en"
   # Prevent clickjacking
   Header always set X-Frame-Options "SAMEORIGIN"
   
