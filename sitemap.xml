@@ -15,7 +15,7 @@
 
 <url>
   <loc>https://detravelcafe.com/</loc>
-  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <lastmod>2025-07-12T10:00:00+00:00</lastmod>
   <priority>1.00</priority>
   <changefreq>weekly</changefreq>
   <image:image>
@@ -54,7 +54,7 @@
 
 <url>
   <loc>https://detravelcafe.com/about</loc>
-  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <lastmod>2025-07-12T10:00:00+00:00</lastmod>
   <priority>0.80</priority>
   <changefreq>monthly</changefreq>
   <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
@@ -68,7 +68,7 @@
 
 <url>
   <loc>https://detravelcafe.com/services</loc>
-  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <lastmod>2025-07-12T10:00:00+00:00</lastmod>
   <priority>0.80</priority>
   <changefreq>monthly</changefreq>
   <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
@@ -82,7 +82,7 @@
 
 <url>
   <loc>https://detravelcafe.com/packages</loc>
-  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <lastmod>2025-07-12T10:00:00+00:00</lastmod>
   <priority>0.90</priority>
   <changefreq>weekly</changefreq>
   <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
@@ -96,7 +96,7 @@
 
 <url>
   <loc>https://detravelcafe.com/contact</loc>
-  <lastmod>2025-07-11T18:00:00+00:00</lastmod>
+  <lastmod>2025-07-12T10:00:00+00:00</lastmod>
   <priority>0.70</priority>
   <changefreq>monthly</changefreq>
   <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
@@ -106,6 +106,26 @@
       <Attribute name="entity">Contact Information</Attribute>
     </DataObject>
   </PageMap>
+</url>
+
+<url>
+  <loc>https://detravelcafe.com/faq</loc>
+  <lastmod>2025-07-12T10:00:00+00:00</lastmod>
+  <priority>0.85</priority>
+  <changefreq>weekly</changefreq>
+  <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+    <DataObject type="document">
+      <Attribute name="title">Kerala Travel FAQs - deTravelCafé</Attribute>
+      <Attribute name="description">Find answers to frequently asked questions about Kerala travel, houseboat cruises, best time to visit, tour packages, and more.</Attribute>
+      <Attribute name="entity">FAQ</Attribute>
+    </DataObject>
+  </PageMap>
+  <semantic:metadata>
+    <semantic:entity type="FAQPage" id="KeralaTravelFAQ">
+      <semantic:property name="topic" value="KeralaTravel,Houseboats,TourPackages,Accommodation" />
+      <semantic:property name="audience" value="Travelers,TouristsToKerala" />
+    </semantic:entity>
+  </semantic:metadata>
 </url>
 
 </urlset>

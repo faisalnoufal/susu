@@ -2,10 +2,6 @@
 <html>
 <head>
   <!-- Open Graph and SEO improvements -->
-  <!-- Update this og:image with your real 1200x630px branded image for best social sharing -->
-  <meta property="og:image" content="assets/images/og-image-1200x630.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
   <!-- Enhanced styling with Kerala-inspired color palette and modern effects -->
   <style>
     :root {
@@ -221,7 +217,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="deTravelCafé offers curated Kerala holiday packages, houseboat cruises, adventure tours, and family getaways. Discover the best of Kerala with personalized service and local expertise." />
+  <meta name="description" content="Kerala holiday packages, houseboat cruises & adventure tours with deTravelCafé. Experience authentic Kerala with personalized service and local expertise." />
   <meta name="keywords" content="Kerala holiday packages, Munnar, Alleppey houseboat, Kerala tourism, travel, adventure, backwater, houseboat cruise, India tourism, deTravelCafé, holiday, Thekkady, Kovalam, beach, Lakshadweep, honeymoon, family, holiday planner, Kerala tour, sightseeing" />
   <meta name="author" content="deTravelCafé" />
   <meta name="robots" content="index, follow" />
@@ -247,7 +243,7 @@
   <meta name="keywords" content="Kerala travel, Kerala holiday packages, Kerala houseboat, Kerala backwaters, Munnar, Thekkady, Alleppey, Wayanad, Kerala tour packages, Kerala tourism" />
   <meta name="author" content="deTravelCafé" />
   <meta name="robots" content="index, follow" />
-  <meta name="twitter:image" content="https://detravelcafe.github.io/susu.png" />
+
   <!-- JSON-LD Structured Data -->
   <!-- Main Business Structured Data -->  
   <script type="application/ld+json">
@@ -345,6 +341,51 @@
       }
     }
   </script>
+  
+  <!-- FAQ Structured Data for SEO and Rich Results -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What are the best places to visit in Kerala?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kerala's top destinations include Munnar (hill station with tea plantations), Alleppey (famous for houseboats and backwaters), Thekkady (wildlife sanctuary), Kovalam (beaches), Wayanad (forests and wildlife), and Kochi (historic port city with cultural heritage)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the best time to visit Kerala?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best time to visit Kerala is during the winter season from September to March when the weather is pleasant with temperatures ranging from 18°C to 29°C. The monsoon season (June-August) offers a unique experience for Ayurvedic treatments."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How many days are needed for a Kerala tour?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A comprehensive Kerala tour typically requires 7-10 days to explore major destinations like Munnar, Thekkady, Alleppey, and Kovalam. For a more relaxed experience covering additional places like Wayanad and Kochi, 12-14 days are recommended."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What types of accommodation are available for houseboat cruises?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "deTravelCafé offers various houseboat options ranging from standard to premium and luxury categories. All houseboats feature air-conditioned bedrooms, attached bathrooms, dining areas, and sun decks. Premium and luxury options include additional amenities like private balconies and enhanced dining experiences."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do you offer customized Kerala tour packages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, deTravelCafé specializes in customized Kerala tour packages tailored to your preferences, budget, and duration. Our local experts can design personalized itineraries that include your choice of destinations, activities, accommodation types, and transportation options."
+        }
+      }]
+    }
+  </script>
+  
   <!-- Preload logo for performance -->
   <link rel="preload" as="image" href="assets/images/susu.png" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -367,7 +408,7 @@
   </script> -->
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> deTravelCafé </title>
+  <title>Kerala Holiday Packages & Tours | deTravelCafé</title>
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
@@ -494,7 +535,7 @@
             <div class="card bg-white p-6 md:p-8 animate-fade-in shadow-lg rounded-lg border border-gray-100">
               <p class="text-lg leading-relaxed mb-6">
                 <span class="font-semibold text-xl text-primary-dark">Holiday...</span> The word itself is rejuvenating! Some days away from
-                daily chores! Oh, who can resist the temptation?
+                daily chores! Oh, who can resist the temptation? <a href="#packages" class="text-amber-600 hover:text-amber-800 underline">Explore our packages</a> to find your perfect getaway.
               </p>
               
               <p class="text-lg leading-relaxed mb-6">
@@ -504,11 +545,11 @@
               </p>
               
               <p class="text-lg leading-relaxed">
-                Hill stations, river cruising, beaches, jungle adventures, monuments, forts, museums, shopping streets...
-                everything is available. The choice is yours, and our experts will design
+                <a href="#destinations" class="text-amber-600 hover:text-amber-800 underline">Hill stations</a>, <a href="#packages" class="text-amber-600 hover:text-amber-800 underline">river cruising</a>, beaches, <a href="#services" class="text-amber-600 hover:text-amber-800 underline">jungle adventures</a>, monuments, forts, museums, shopping streets...
+                everything is available. The choice is yours, and <a href="#contact" class="text-amber-600 hover:text-amber-800 underline">our experts</a> will design
                 it for you. Come, try a getaway from the maddening routines...
                 We are aware of your precious time. That's why we crafted
-                bunch of day tours for you.
+                bunch of <a href="#services" class="text-amber-600 hover:text-amber-800 underline">day tours</a> for you.
               </p>
             </div>
             <div
@@ -1788,10 +1829,11 @@
         <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <!-- Package image -->
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.pexels.com/photos/5480518/pexels-photo-5480518.jpeg" 
+            <img data-src="https://images.pexels.com/photos/5480518/pexels-photo-5480518.jpeg" 
                  alt="Mysore Palace Tour" 
-                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lazy-load"
                  onerror="this.src='https://images.pexels.com/photos/5480518/pexels-photo-5480518.jpeg'; this.onerror=null;"
+                 loading="lazy"
             />
             <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
               2 Days
@@ -1858,10 +1900,11 @@
         <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <!-- Package image -->
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.pexels.com/photos/457538/pexels-photo-457538.jpeg" 
+            <img data-src="https://images.pexels.com/photos/457538/pexels-photo-457538.jpeg" 
                  alt="Coorg Tour" 
-                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lazy-load"
                  onerror="this.src='https://images.pexels.com/photos/457538/pexels-photo-457538.jpeg'; this.onerror=null;"
+                 loading="lazy"
             />
             <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
               3 Days
@@ -1953,10 +1996,11 @@
         <div class="card bg-white overflow-hidden animate-fade-in shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
           <!-- Package image -->
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.pexels.com/photos/19935191/pexels-photo-19935191.jpeg" 
+            <img data-src="https://images.pexels.com/photos/19935191/pexels-photo-19935191.jpeg" 
                  alt="Ooty Hill Station Tour" 
-                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-105 lazy-load"
                  onerror="this.src='https://images.pexels.com/photos/19935191/pexels-photo-19935191.jpeg'; this.onerror=null;"
+                 loading="lazy"
             />
             <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
               3 Days
@@ -2438,6 +2482,54 @@
           </div>
         </div>
       </div>
+      
+      <!-- Adding the remaining FAQ items from structured data -->
+      <div class="space-y-6 max-w-3xl mx-auto mt-6" itemscope itemtype="https://schema.org/FAQPage">
+        <!-- FAQ Item 6 - From structured data -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-800" itemprop="name">What are the best places to visit in Kerala?</h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="text-gray-600">Kerala's top destinations include <a href="#munnar" class="text-amber-600 hover:underline">Munnar</a> (hill station with tea plantations), <a href="#alleppey" class="text-amber-600 hover:underline">Alleppey</a> (famous for houseboats and backwaters), <a href="#thekkady" class="text-amber-600 hover:underline">Thekkady</a> (wildlife sanctuary), <a href="#kovalam" class="text-amber-600 hover:underline">Kovalam</a> (beaches), <a href="#wayanad" class="text-amber-600 hover:underline">Wayanad</a> (forests and wildlife), and <a href="#kochi" class="text-amber-600 hover:underline">Kochi</a> (historic port city with cultural heritage).</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 7 - From structured data -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-800" itemprop="name">What types of accommodation are available for houseboat cruises?</h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="text-gray-600">deTravelCafé offers various houseboat options ranging from standard to premium and luxury categories. All houseboats feature air-conditioned bedrooms, attached bathrooms, dining areas, and sun decks. Premium and luxury options include additional amenities like private balconies and enhanced dining experiences. <a href="#houseboats" class="text-amber-600 hover:underline">View our houseboat packages</a> for more details.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 8 - From structured data -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-800" itemprop="name">Do you offer customized Kerala tour packages?</h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-4 hidden" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="text-gray-600">Yes, deTravelCafé specializes in customized Kerala tour packages tailored to your preferences, budget, and duration. Our local experts can design personalized itineraries that include your choice of destinations, activities, accommodation types, and transportation options. <a href="#contact" class="text-amber-600 hover:underline">Contact us</a> to start planning your custom Kerala adventure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -2680,6 +2772,73 @@
       }
       window.addEventListener('scroll', onScroll);
       onScroll();
+    });
+  </script>
+  
+  <!-- FAQ Functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ accordion functionality
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          const arrow = this.querySelector('.faq-arrow');
+          
+          // Toggle the answer visibility
+          if (answer.classList.contains('hidden')) {
+            answer.classList.remove('hidden');
+            arrow.classList.add('rotate-180');
+          } else {
+            answer.classList.add('hidden');
+            arrow.classList.remove('rotate-180');
+          }
+        });
+      });
+    });
+  </script>
+  
+  <!-- Image Optimization and Lazy Loading -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lazy load images
+      const lazyImages = document.querySelectorAll('img[data-src]');
+      
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+      } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(img => {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        });
+      }
+      
+      // Convert non-lazy-loaded images to use data-src for lazy loading
+      const allImages = document.querySelectorAll('img:not([data-src])');
+      allImages.forEach(img => {
+        // Skip images that are already loaded or don't have a src
+        if (!img.src || img.complete) return;
+        
+        // Skip small images like icons
+        if (img.width < 50 || img.height < 50) return;
+        
+        // Set data-src and remove src to enable lazy loading
+        img.dataset.src = img.src;
+        img.removeAttribute('src');
+      });
     });
   </script>
 </body>

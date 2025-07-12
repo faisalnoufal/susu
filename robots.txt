@@ -1,12 +1,17 @@
 # deTravelCafé - Premium Kerala Holiday Packages & Luxury Houseboat Cruises
 # AI-Optimized Robots.txt
-# Updated: 2025-07-11
+# Updated: 2025-07-12
 # Purpose: Provide clear crawling instructions for search engine bots
 
+# Instructions for all web crawlers
 User-agent: *
 Allow: /
 Allow: /assets/images/
 Allow: /css/
+Allow: /js/
+Crawl-delay: 10
+
+# Disallow admin and development directories
 Disallow: /downloads/
 Disallow: /includes/
 Disallow: /lib/
@@ -18,6 +23,22 @@ Disallow: /My Project/
 Disallow: /App_Data/
 Disallow: /bin/
 Disallow: /0/
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /temp/
+
+# Specific instructions for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+# Specific instructions for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://detravelcafe.com/sitemap.xml
 Disallow: /1/
 Disallow: /2/
 Disallow: /ucf/
